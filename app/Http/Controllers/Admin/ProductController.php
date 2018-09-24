@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Size;
-use Encore\Admin\Widgets\Table;
+use App\Exceptions\Handler;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
@@ -151,7 +150,7 @@ class ProductController extends Controller
         return Admin::content(function (Content $content) use ($id) {
             $content->header(trans('admin.product'));
             $content->description(trans('admin.edit'));
-            $content->body($this->form($id)->edit($id));
+            $content->body($this->form()->edit($id));
         });
     }
 
@@ -222,70 +221,56 @@ class ProductController extends Controller
 
     /**
      * Make a form builder.
-     * only one form for tabs
-     * specs is many to many relation
      *
      * @return Form
      *
+     * $(document).on('select2:opening', 'select.category_id', function (event) {
+    $.ajax({
+    url: '/admin/categories/options',
+    type: 'get',
+    dataType: 'json',
+    success: function(response){
+    console.log(response);
+    },
+    });
+    });
      */
-    public function form($id = null)
+    public function form()
     {
         Admin::script("$('#title').on('input', function(e){ $('#slug').val(e.delegateTarget.value); $('#title').slugIt(); })");
 
-        return Admin::form(Product::class, function (Form $form) use ($id) {
+        return Admin::form(Product::class, function (Form $form) {
+            $form->display('id', 'ID');
 
-            $form->tab('基本', function (Form $form){
-                $form->display('id', 'ID');
-                $form->select('category_id',trans('admin.category'))->options(Category::selectOptions())->help(__('admin.helper.product_category', ['url' => admin_url('categories')]));
-                $form->text('title', trans('admin.title'))->rules('required|min:8|max:64')->help(__('admin.helper.product_title', ['max' => '64']));
-                $form->url('slug', trans('admin.slug'))->readOnly()->help(__('admin.helper.slug'));
-                $form->editor('description', trans('admin.description'))->rules('required');
-                $form->html(__('admin.helper.description.product'));
-                $form->multipleImage('images', trans('admin.image'))
-                    ->uniqueName()
-                    ->removable()->rules('mimes:jpeg,jpg,png')
-                    ->help(__('admin.helper.product_image'));
-                $form->select('status', trans('admin.status'))->options([0 => '草稿', 1 => '发布'])->setWidth(2)->default(1);
-                $form->number('views', trans('admin.views'))->default('0');
-                $form->number('likes', trans('admin.likes'))->default('0');
+            $form->select('category_id',trans('admin.category'))->options(Category::selectOptions())->help(__('admin.helper.product_category', ['url' => admin_url('categories')]));
+            $form->text('title', trans('admin.title'))->rules('required|min:20|max:64')->help(__('admin.helper.product_title', ['max' => '64']));
+            $form->url('slug', trans('admin.slug'))->default('')->help(__('admin.helper.slug'));
+            $form->editor('description', trans('admin.description'))->rules('required');
+            $form->html(__('admin.helper.description.product'));
 
-                $form->datetime('created_at', trans('admin.created_at'));
-                $form->datetime('updated_at', trans('admin.updated_at'));
-            });
-            $form->tab('规格', function (Form $form){
-                $notice = __('admin.helper.product_notice', ['url' => admin_url('specs/create')]);
-                $form->html("<span class='text-warning'><i class='fa fa-exclamation'></i> {$notice}</span>", '');
-                $names = Spec::names();
-                foreach ($names as $name)
-                {
-                    $form->multipleSelect('specs', ucfirst($name))->options(function () use($name) {
-                        return Spec::whereName($name)->pluck('value', 'id');
-                    })->setWidth(4)->placeholder(trans('admin.select') . trans('admin.spec') . ' ' . ucfirst($name));
-                }
-            });
+            $form->multipleImage('images', trans('admin.image'))
+                ->uniqueName()
+                ->removable()->rules('mimes:jpeg,jpg,png')
+                ->help(__('admin.helper.product_image'));
 
-            $form->tab('尺寸', function (Form $form) use($id) {
-                $grid = Admin::Grid(Size::class, function (Grid $grid) use($id) {
-                    $grid->model()->where('product_id', $id);
-                });
-                $grid->id('ID')->sortable();
-                $grid->product_id('Product')->sortable();
-                $grid->dia('DIA')->editable()->sortable();
-                $grid->dec('DEC')->editable()->sortable();
-                $grid->flute_length('Flute length')->editable()->sortable();
-                $grid->shank_dia('Shank DIA')->editable()->sortable();
-                $grid->oal('OAL')->editable()->sortable();
-                $grid->flutes('Number of Flutes')->editable()->sortable();
+            $form->divide();
+            $notice = __('admin.helper.product_notice', ['url' => admin_url('specs/create')]);
+            $form->html("<span class='text-warning'><i class='fa fa-exclamation'></i> {$notice}</span>", '');
+            $names = Spec::names();
+            foreach ($names as $name)
+            {
+                $form->multipleSelect('specs', ucfirst($name))->options(function () use($name) {
+                    return Spec::whereName($name)->pluck('value', 'id');
+                })->setWidth(4)->placeholder(trans('admin.select') . trans('admin.spec') . ' ' . ucfirst($name));
+            }
 
-                $grid->disableFilter();
-                $grid->disableExport();
-                $grid->disablePagination();
-                $grid->tools->disableRefreshButton();
-                $grid->tools->disableFilterButton();
-                $grid->tools->disableBatchActions();
+            $form->divide();
+            $form->select('status', trans('admin.status'))->options([0 => '草稿', 1 => '发布'])->setWidth(2)->default(1);
+            $form->number('views', trans('admin.views'))->default('0');
+            $form->number('likes', trans('admin.likes'))->default('0');
 
-                $form->html($grid->render())->setWidth(12);
-            });
+            $form->datetime('created_at', trans('admin.created_at'));
+            $form->datetime('updated_at', trans('admin.updated_at'));
 
             $form->ignore('slug');
         });
