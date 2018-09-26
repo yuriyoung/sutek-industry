@@ -154,13 +154,19 @@ class Product extends Model
         });
 
         static::updating(function(Product $product){
-            // 编辑时可能有新图增加
-            $product->_processImages();
+            if (request()->hasFile('images'))
+            {
+                // 编辑时可能有新图增加
+                $product->_processImages();
+            }
         });
 
         static::updated(function(Product $product){
-            // 每次更新完成，都检查是否还有没使用的缩略图，有则删除
-            $product->_clearThumbnails();
+            if (request()->has('_file_del_'))
+            {
+                // 每次更新完成，都检查是否还有没使用的缩略图，有则删除
+                $product->_clearThumbnails();
+            }
         });
 
         // TODO: 需要增加永久删除/清理已删除的记录

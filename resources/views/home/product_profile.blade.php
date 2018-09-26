@@ -78,7 +78,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Dia</th>
-                                    <th>DEC</th>
+                                    <th>Dec.Equ.</th>
                                     <th>Flute Length</th>
                                     <th>Shank DIA</th>
                                     <th>OAL</th>
@@ -86,16 +86,16 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @if(isset($product->sizes))
+                                @if(count($product->sizes) > 0)
                                     @foreach($product->sizes as $idx => $size)
                                         <tr>
                                             <td>{!! $idx !!}</td>
-                                            <td>{!! $size->dia !!}</td>
-                                            <td>{!! $size->dec !!}</td>
-                                            <td>{!! $size->flute_length !!}</td>
-                                            <td>{!! $size->shank_dia !!}</td>
-                                            <td>{!! $size->oal !!}</td>
-                                            <td>{!! $size->flutes !!}</td>
+                                            <td>{!! $size->diameter ?: 'N/A' !!}</td>
+                                            <td>{!! $size->equivalence ?: 'N/A' !!}</td>
+                                            <td>{!! $size->flute_length ?: 'N/A' !!}</td>
+                                            <td>{!! $size->shank_diameter ?: 'N/A' !!}</td>
+                                            <td>{!! $size->overall_length ?: 'N/A' !!}</td>
+                                            <td>{!! $size->flutes ?: 'N/A' !!}</td>
                                         </tr>
                                     @endforeach
                                 @else

@@ -6,11 +6,13 @@ return [
      * Laravel-admin name.
      */
     'name' => 'Shanghai Sutek Industry Co.,Ldt',
+    'name_cn' => '上海索为实业有限公司',
 
     /*
      * Logo in admin panel header.
      */
     'logo' => '<b>Sutek</b> Industry',
+    'logo_image' => '/images/logo-light.png',
 
     /*
      * Mini-logo in admin panel header.
@@ -40,9 +42,19 @@ return [
     'title' => 'Admin',
 
     /*
+    |--------------------------------------------------------------------------
+    | Access via `https`
+    |--------------------------------------------------------------------------
+    |
+    | If your page is going to be accessed via https, set it to `true`.
+    |
+    */
+    'https' => env('ADMIN_HTTPS', false),
+
+    /*
      * Use `https`.
      */
-    'secure' => false,
+    //'secure' => false,
 
     /*
      * Laravel-admin auth setting.
@@ -116,6 +128,11 @@ return [
         'enable' => true,
 
         /*
+         * Only logging allowed methods in the list
+         */
+        'allowed_methods' => ['GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'CONNECT', 'OPTIONS', 'TRACE', 'PATCH'],
+
+        /*
          * Routes that will not log to database.
          *
          * All method to path like: admin/auth/logs
@@ -127,30 +144,85 @@ return [
     ],
 
     /*
-     * @see https://adminlte.io/docs/2.4/layout
-     */
+    |--------------------------------------------------------------------------
+    | Admin map field provider
+    |--------------------------------------------------------------------------
+    |
+    | Supported: "tencent", "google", "yandex".
+    |
+    */
+    'map_provider' => 'google',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Skin
+    |--------------------------------------------------------------------------
+    |
+    | This value is the skin of admin pages.
+    | @see https://adminlte.io/docs/2.4/skin
+    |
+    | Supported:
+    |    "skin-blue", "skin-blue-light", "skin-yellow", "skin-yellow-light",
+    |    "skin-green", "skin-green-light", "skin-purple", "skin-purple-light",
+    |    "skin-red", "skin-red-light", "skin-black", "skin-black-light".
+    |
+    */
     'skin' => 'skin-blue-light',
 
     /*
-    |---------------------------------------------------------|
-    |LAYOUT OPTIONS | fixed                                   |
-    |               | layout-boxed                            |
-    |               | layout-top-nav                          |
-    |               | sidebar-collapse                        |
-    |               | sidebar-mini                            |
-    |---------------------------------------------------------|
-     */
+    |--------------------------------------------------------------------------
+    | Application layout
+    |--------------------------------------------------------------------------
+    |
+    | This value is the layout of admin pages.
+    | @see https://adminlte.io/docs/2.4/layout
+    |
+    | Supported: "fixed", "layout-boxed", "layout-top-nav", "sidebar-collapse",
+    | "sidebar-mini".
+    |
+    */
     'layout' => ['sidebar-mini', 'fixed'],
 
     /*
      * Background image in login page
      */
-    'login_background_image' => '',
+    'login_background' => '#12b0ed',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Show version at footer
+    |--------------------------------------------------------------------------
+    |
+    | Whether to display the version number of laravel-admim at the footer of
+    | each page
+    |
+    */
+    'show_version' => true,
 
     /*
      * Version displayed in footer.
      */
-    'version' => '1.5.x-dev',
+    //'version' => '1.5.x-dev',
+
+    /*
+   |--------------------------------------------------------------------------
+   | Show environment at footer
+   |--------------------------------------------------------------------------
+   |
+   | Whether to display the environment at the footer of each page
+   |
+   */
+    'show_environment' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Extension Directory
+    |--------------------------------------------------------------------------
+    |
+    | When you use command `php artisan admin:extend` to generate extensions,
+    | the extension files will be generated in this directory.
+    */
+    'extension_dir' => app_path('Http/Controllers/Admin/Extensions'),
 
     /*
      * Settings for extensions.

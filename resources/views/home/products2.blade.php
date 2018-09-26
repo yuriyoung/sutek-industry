@@ -74,7 +74,7 @@
                                                         <div class="overlay-container">
                                                             <img src="{!! $product->media_path . $thumb !!}" alt="{!! $product->title !!}">
                                                             <div class="overlay-to-top">
-                                                                <p class="small margin-clear"><em>{!! $product->category->name !!} <br>{!! $product->title !!}</em></p>
+                                                                <p class="small margin-clear"><em>{!! $product->category ? $product->category->name :'' !!} <br>{!! $product->title !!}</em></p>
                                                             </div>
                                                         </div>
                                                     </div>

@@ -35,9 +35,18 @@
 
             var min = self.attr('min');
             var max = self.attr('max');
+            var step = parseFloat(self.attr('step')) || 1;
+            var dec = decimalPlaces(step);
 
             function setText(n) {
                 if ((min && n < min) || (max && n > max)) {
+                    return false;
+                }
+
+                if($.isNumeric(n)){  // it is a number
+                    n = +n.toFixed(dec);
+                } else{
+                    // not a number
                     return false;
                 }
 
@@ -47,10 +56,14 @@
 
             var group = $("<div class='input-group'></div>");
             var down = $("<button type='button'>-</button>").attr('class', 'btn btn-' + settings.downClass).click(function () {
-                setText(parseInt(clone.val()) - 1);
+                dec = decimalPlaces(clone.val());
+                step = 1/Math.pow(10, dec);
+                setText(parseFloat(clone.val()) - step);
             });
             var up = $("<button type='button'>+</button>").attr('class', 'btn btn-' + settings.upClass).click(function () {
-                setText(parseInt(clone.val()) + 1);
+                dec = decimalPlaces(clone.val());
+                step = 1/Math.pow(10, dec);
+                setText(parseFloat(clone.val()) + step);
             });
             $("<span class='input-group-btn'></span>").append(down).appendTo(group);
             clone.appendTo(group);
@@ -92,5 +105,16 @@
 
             self.replaceWith(group);
         });
+    };
+
+    decimalPlaces = function(num) {
+        var match = (''+num).match(/(?:\.(\d+))?(?:[eE]([+-]?\d+))?$/);
+        if (!match) { return 0; }
+        return Math.max(
+            0,
+            // Number of digits right of decimal point.
+            (match[1] ? match[1].length : 0)
+            // Adjust for scientific notation.
+            - (match[2] ? + match[2] : 0));
     };
 }(jQuery));
