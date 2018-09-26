@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
 use App\Models\Spec;
@@ -107,7 +108,7 @@ class SpecController extends Controller
                     var txt = $(this).val().replace(/(^\s*)|(\s*$)/g, '') !== '' ? '确定' : '取消';
                     $('.bootstrap-switch-handle-on').text(txt);
                 });");
-        Admin::script("$('#value').on('input', function(e){ $('#slug').val(e.delegateTarget.value); $('#value').slugIt(); });");
+        Admin::script("$('#value').on('input', function(e){ " . (!$id ? "$('#slug').val(e.delegateTarget.value);" : "") . " });");
         Admin::script("$('[name=new_name_switch]').on('change', function(e){
              var item = $('#new_name').closest('.form-group');
              if( $(this).val() === 'on') {
@@ -138,8 +139,12 @@ class SpecController extends Controller
 
         return Admin::form(Spec::class, function (Form $form) use($spec) {
 
-            $form->display('id', 'ID');
+            $form->disableViewCheck();
+            $form->tools(function (Form\Tools $tools){
+                $tools->disableDelete();
+            });
 
+            $form->display('id', 'ID')->setWidth(2);
             $form->select('name', trans('admin.spec_name'))->options(Spec::names())
                 ->rules('required')->setWidth(4)->help(trans('admin.helper.spec_name'));
 
@@ -151,14 +156,13 @@ class SpecController extends Controller
             $form->text('new_name', trans('admin.spec_name_new'))->setWidth(6)
                 ->rules('required_unless:new_name_switch,off')->help(trans('admin.helper.spec_new'));
             $form->text('value', trans('admin.spec_value'))->rules('required|min:2|max:32')->help(trans('admin.helper.spec_value'));
-            $form->url('slug', trans('admin.slug'))->readOnly()
-                ->default(isset($spec)? url('specs/' . $spec->slug) : '-')->help(trans('admin.helper.slug'));
+            $form->text('slug', trans('admin.slug'))->prepend('<i class="fa fa-internet-explorer fa-fw"></i>')->help(trans('admin.helper.slug'));
 
             $form->number('views', trans('admin.views'))->default(0);
             $form->datetime('created_at', trans('admin.created_at'));
             $form->datetime('updated_at', trans('admin.updated_at'));
 
-            $form->ignore(['new_name_switch', 'new_name', 'slug']);
+            $form->ignore(['new_name_switch', 'new_name']);
 
             $form->saving(function (Form $form) {
                 // check duplication
@@ -170,6 +174,11 @@ class SpecController extends Controller
                         'message' => "规格参数为 '{$form->name}' 的值  '{$form->value}'  已经存在！"
                     ]);
                     return back()->with(compact('error'));
+                }
+
+                if ($form->slug)
+                {
+                    $form->slug = SlugService::createSlug(Spec::class, 'slug', $form->slug, ['unique' => true]);
                 }
             });
 

@@ -20,6 +20,7 @@ Route::group([
     $router->get('categories/options', 'CategoryController@options');
     $router->resource('categories', 'CategoryController', ['except' => ['create']]);
     $router->resource('specs', 'SpecController');
+    $router->resource('sizes', 'SizeController');
 
     $router->get('recover', 'ProductController@recoverImages');
 });

@@ -25,9 +25,9 @@ use Encore\Admin\Admin;
 use Encore\Admin\Form;
 use Encore\Admin\Grid\Column;
 
-Admin::js('js/jquery.slugit.js');
+//Admin::js('js/jquery.slugit.js');
 Form::extend('editor', WangEditor::class);
-Form::extend('slider', SliderRevolution::class);
+//Form::extend('slider', SliderRevolution::class);
 Column::extend('popover', Popover::class);
 
 Encore\Admin\Form::forget(['map']);

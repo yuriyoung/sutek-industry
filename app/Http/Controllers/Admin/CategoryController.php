@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use function GuzzleHttp\Psr7\str;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
@@ -26,6 +26,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        Admin::script("$('#name').on('input', function(e){ $('#slug').val(e.delegateTarget.value); });");
+
         return Admin::content(function (Content $content) {
             $content->header(trans('admin.category'));
             $content->description(trans('admin.list'));
@@ -43,7 +45,7 @@ class CategoryController extends Controller
 
                     $form->select('parent_id', trans('admin.category_parent'))->options(Category::selectOptions())->help(trans('admin.helper.category_parent'));
                     $form->text('name', trans('admin.category'))->rules('required|min:2|max:20')->help(trans('admin.helper.category'));
-                    $form->url('slug', trans('admin.slug'))->readOnly()->placeholder('-')->help(trans('admin.helper.slug'));
+                    $form->url('slug', trans('admin.slug'))->prepend('<i class="fa fa-internet-explorer fa-fw"></i>')->help(trans('admin.helper.slug'));
                     $form->text('description', trans('admin.description'))->help(trans('admin.helper.description.category'));
                     $form->html(__('admin.helper.category_notice'));
 
@@ -92,19 +94,31 @@ class CategoryController extends Controller
      */
     public function form($id = null)
     {
+        Admin::script("$('#name').on('input', function(e){ " . (!$id ? "$('#slug').val(e.delegateTarget.value);" : "") . " });");
+
         $category = Category::find($id);
 
         return Category::form(function (Form $form) use($category) {
-            $form->display('id', 'ID');
+            $form->disableViewCheck();
+            $form->tools(function (Form\Tools $tools){
+                $tools->disableDelete();
+            });
 
-            $form->select('parent_id', trans('admin.category_parent'))->options(Category::selectOptions());
+            $form->display('id', 'ID')->setWidth(2);
+            $form->select('parent_id', trans('admin.category_parent'))->options(Category::selectOptions())->setWidth(4);
             $form->text('name', trans('admin.category'))->rules('required|min:2|max:20');
-            $form->url('slug', trans('admin.slug'))->default(isset($category) ? url('categories/' . $category->slug): '-')->readOnly();
+            $form->text('slug', trans('admin.slug'))->prepend('<i class="fa fa-internet-explorer fa-fw"></i>')->help(trans('admin.helper.slug'));;
             $form->text('description', trans('admin.description'))->help('分类描述（可选）');
             $form->number('views', trans('admin.hot'));
             $form->datetime('created_at', trans('admin.created_at'));
             $form->datetime('updated_at', trans('admin.updated_at'));
-            $form->ignore('slug');
+
+            $form->saving(function (Form $form){
+                if ($form->slug)
+                {
+                    $form->slug = SlugService::createSlug(Category::class, 'slug', $form->slug, ['unique' => true]);
+                }
+            });
         });
     }
 }
