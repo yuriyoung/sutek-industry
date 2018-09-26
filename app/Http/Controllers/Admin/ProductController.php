@@ -279,6 +279,9 @@ class ProductController extends Controller
             if ($id)
             {
                 $form->tab('尺寸', function (Form $form) use($id) {
+                    $size_helper = trans('admin.helper.product_size_notice');
+                    $form->html("<div class='help-block'>{$size_helper}</div>")->setWidth(12);
+
                     $grid = Admin::Grid(Size::class, function (Grid $grid) use($id) {
                         $grid->model()->where('product_id', $id);
                     });
