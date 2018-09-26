@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\DownloadLog;
+use App\Models\Product;
+use App\Models\Spec;
+use App\Models\User;
 use Encore\Admin\Controllers\Dashboard;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Form;
@@ -12,6 +16,7 @@ use Encore\Admin\Layout\Content;
 use Encore\Admin\Layout\Row;
 use Encore\Admin\Widgets\Box;
 use Encore\Admin\Grid;
+use Encore\Admin\Widgets\InfoBox;
 
 class AdminController extends Controller
 {
@@ -23,6 +28,13 @@ class AdminController extends Controller
             $content->description(trans('admin.helper.dashboard'));
 
             $content->row(Dashboard::title());
+
+            $content->row(function (Row $row){
+                $row->column(3,new InfoBox('Users(用户)', 'users', 'green', admin_url('auth/users'), Admin::user()->count()));
+                $row->column(3,new InfoBox('Products(产品)', 'cubes', 'aqua', admin_url('products'), Product::count()));
+                $row->column(3,new InfoBox('Categories(分类)', 'dedent', 'yellow', admin_url('categories'), Category::count()));
+                $row->column(3,new InfoBox('Specifications(规格)', 'file-text', 'red', admin_url('specs'), Spec::count()));
+            });
 
             $content->row(function (Row $row) {
 

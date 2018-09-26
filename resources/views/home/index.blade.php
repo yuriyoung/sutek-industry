@@ -17,7 +17,7 @@
     <div class="banner clearfix">
         {{-- slideshow revolution start --}}
         <div class="slideshow">
-            <div class="slider-revolution-5-container" style="background:#09afdf;">
+            <div class="slider-revolution-5-container" style="background:#09afdf;" data-animation-effect="fadeInLeft" data-effect-delay="1000">
                 <div id="slider-banner-fullwidth-big-height" class="slider-banner-fullwidth-big-height rev_slider" data-version="5.0">
                     <ul class="slides">
                         {{-- slider 1 --}}
@@ -46,7 +46,7 @@
             <div class="row">
 
                 <div class="col-md-4">
-                    <div class="image-box style-2 mb-20 object-non-visible" data-animation-effect="fadeInDown" data-effect-delay="100">
+                    <div class="image-box style-2 mb-20 object-non-visible" data-animation-effect="fadeInDown" data-effect-delay="1000">
                         <div class="overlay-container overlay-visible">
                             <img src="http://placehold.it/750x460/'{!! mt_rand(0, 0xfff) !!}" alt="">
                             <a href="#" class="overlay-link"><i class="fa fa-link"></i></a>
@@ -64,7 +64,7 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="image-box style-2 mb-20 object-non-visible" data-animation-effect="fadeInDown" data-effect-delay="100">
+                    <div class="image-box style-2 mb-20 object-non-visible" data-animation-effect="fadeInDown" data-effect-delay="1000">
                         <div class="overlay-container overlay-visible">
                             <img src="http://placehold.it/750x460/'{!! mt_rand(0, 0xfff) !!}" alt="">
                             <a href="#" class="overlay-link"><i class="fa fa-link"></i></a>
@@ -82,7 +82,7 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="image-box style-2 mb-20 object-non-visible" data-animation-effect="fadeInDown" data-effect-delay="100">
+                    <div class="image-box style-2 mb-20 object-non-visible" data-animation-effect="fadeInDown" data-effect-delay="1000">
                         <div class="overlay-container overlay-visible">
                             <img src="http://placehold.it/750x460/'{!! mt_rand(0, 0xfff) !!}" alt="">
                             <a href="#" class="overlay-link"><i class="fa fa-link"></i></a>

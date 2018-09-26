@@ -60,7 +60,6 @@ class ProductController extends FrontController
         }
         else
         {
-            $query = null;
             $products = Product::whereStatus(1)->orderByDesc("updated_at")->paginate(10);
         }
 

@@ -89,7 +89,7 @@
                                 @if(count($product->sizes) > 0)
                                     @foreach($product->sizes as $idx => $size)
                                         <tr>
-                                            <td>{!! $idx !!}</td>
+                                            <td>{!! $idx+1 !!}</td>
                                             <td>{!! $size->diameter ?: 'N/A' !!}</td>
                                             <td>{!! $size->equivalence ?: 'N/A' !!}</td>
                                             <td>{!! $size->flute_length ?: 'N/A' !!}</td>
