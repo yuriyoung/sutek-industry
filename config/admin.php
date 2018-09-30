@@ -5,7 +5,7 @@ return [
     /*
      * Laravel-admin name.
      */
-    'name' => 'Shanghai Sutek Industry Co.,Ldt',
+    'name' => 'Shanghai Sutek Industries Co.,Ldt',
     'name_cn' => '上海索为实业有限公司',
 
     /*

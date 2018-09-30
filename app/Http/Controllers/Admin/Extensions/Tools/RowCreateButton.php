@@ -52,11 +52,7 @@ EOT;
         Admin::script($this->script());
         $new = trans('admin.new');
         return <<<EOT
-        
-<div class="help-block">
-    新增后，编辑每列的数据后，<code>无需点</code> <kbd>提交</kbd>。请不要加太多数据，10条左右即可。
-</div>
-        
+                
 <div class="btn-group pull-right" style="margin-right: 10px">
     <a href="javascript:void(0);" class="btn btn-sm btn-success" id="newRow">
         <i class="fa fa-plus"></i>&nbsp;&nbsp;{$new}

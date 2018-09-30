@@ -40,6 +40,7 @@ return [
         'product_title'     => '不要出现重复的产品标题，仅字母、数字和下滑线，最多:max个字符，请不要包含特殊符号。',
         'product_image'     => '要上传多张图片，上传时需要同时选中。支持<code>2M</code>内的<code>jpeg/jpg/png</code>格式的图片，<code>750*460 ~ 1000*800</code>以内(长宽比例应在1.6倍左右)。',
         'product_notice'    => "选择产品规格/属性选项（可多选）。如果要增加新的规格/属性，请到规格/属性页面下增加，<a href=':url' target='_blank'>点击这里 <i class='fa fa-external-link'></i></a> 跳转。<code>添加后需刷新此页</code>。",
+        'product_size_notice' => '点击<kbd>新增</kbd>后，手动编辑每列的数据，自动保存，<code>无需点击</code> <kbd>提交</kbd>（除非你已修改<code>"基本"</code>或<code>"规格"</code>）。不推荐增加过多的数据行，推荐15条左右即可。留空自动转换为N/A',
 
         'category_parent'   => '点击下拉框选择父级分类。',
         'category'          => '分类名称最少2个字符，最多20个字符，只能字母+数字。',

@@ -38,12 +38,18 @@ class ProductController extends FrontController
         if ($request->has('category'))
         {
             $cat = Category::findBySlugOrFail($request->get('category'));
+            $cat->views += 1;
+            $cat->save();
+
             $title = 'Category - ' . ucfirst($cat->name);
             $products = $cat->products()->where('status', 1)->orderByDesc('updated_at')->paginate(10);
         }
         else if ($request->has('spec'))
         {
             $spec = Spec::findBySlugOrFail($request->get('spec'));
+            $spec->views += 1;
+            $spec->save();
+
             $title = ucfirst($spec->name) .' - ' . strtolower($spec->value);
             $products = $spec->products()->where('status', 1)->orderByDesc('updated_at')->paginate(10);
         }
@@ -56,7 +62,7 @@ class ProductController extends FrontController
                     $query->where('name', 'like', '%'.$search.'%');
                 })->orWhereHas('specs', function ($query) use ($search) {
                     $query->where('value', 'like', '%'.$search.'%');
-                })->orderByDesc('updated_at')->paginate(10);
+                })->whereStatus(1)->orderByDesc('updated_at')->paginate(10);
         }
         else
         {

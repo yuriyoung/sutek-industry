@@ -158,18 +158,18 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="feature-box-2 object-non-visible" data-animation-effect="fadeInDownSmall" data-effect-delay="1000">
-                                <span class="icon"><img src="/images/icons/surface/TiALN.png" class="icon"></span>
+                                <span class="icon"><img src="/images/icons/surface/Amber.png" class="icon"></span>
                                 <div class="body">
-                                    <h4 class="title">Unt in culpa qui</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod ut labore et dolore magna aliqua.</p>
+                                    <h4 class="title">Amber Surfaces</h4>
+                                    <p>Perfect plating Amber surface treatment for enhancing hardness and wear resistance, the hardness increased by about 10 times at most.</p>
                                     <div class="separator-2"></div>
                                 </div>
                             </div>
                             <div class="feature-box-2 object-non-visible" data-animation-effect="fadeInDownSmall" data-effect-delay="1000">
-                                <span class="icon"><img src="/images/icons/surface/TiN.png" class="icon"></span>
+                                <span class="icon"><img src="/images/icons/surface/TiALN.png" class="icon"></span>
                                 <div class="body">
-                                    <h4 class="title">Quis harum</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod ut labore et dolore magna aliqua.</p>
+                                    <h4 class="title">TiALN Surfaces</h4>
+                                    <p>Perfect plating TiALN surface treatment for enhancing hardness and wear resistance, the hardness increased by about 15 times at most.</p>
                                     <div class="separator-2"></div>
                                 </div>
                             </div>
