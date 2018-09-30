@@ -41,23 +41,25 @@
 
     <section class="light-gray-bg pv-40 border-clear">
         <div class="container">
-            <h1 class="page-title text-center">Our <strong>Services</strong></h1>
+            <h1 class="page-title text-center">Our <strong>Drill bits</strong></h1>
             <div class="separator"></div>
             <div class="row">
 
                 <div class="col-md-4">
                     <div class="image-box style-2 mb-20 object-non-visible" data-animation-effect="fadeInDown" data-effect-delay="1000">
                         <div class="overlay-container overlay-visible">
-                            <img src="http://placehold.it/750x460/'{!! mt_rand(0, 0xfff) !!}" alt="">
-                            <a href="#" class="overlay-link"><i class="fa fa-link"></i></a>
+                            <img src="/images/sutek-image-3.jpg" alt="" style="height:200px;">
+                            <a href="{!! url('services') !!}" class="overlay-link"><i class="fa fa-link"></i></a>
                             <div class="overlay-bottom">
                                 <div class="text">
-                                    <p class="lead margin-clear text-left mobile-visible">Service One</p>
+                                    <p class="lead margin-clear text-left mobile-visible">Carbonsteel Material</p>
                                 </div>
                             </div>
                         </div>
                         <div class="body padding-horizontal-clear">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihil, adipisci rem minus? Voluptatem distinctio laborum porro aspernatur.</p>
+                            <p>It is often used in power-saw blades and drill bits.
+                                It is superior to the older high-carbon steel tools used extensively through
+                                the 1940s in that it can withstand higher temperatures without losing its temper (hardness) ...</p>
                             <a class="link-dark" href="{!! url('services') !!}">Read More</a>
                         </div>
                     </div>
@@ -66,16 +68,20 @@
                 <div class="col-md-4">
                     <div class="image-box style-2 mb-20 object-non-visible" data-animation-effect="fadeInDown" data-effect-delay="1000">
                         <div class="overlay-container overlay-visible">
-                            <img src="http://placehold.it/750x460/'{!! mt_rand(0, 0xfff) !!}" alt="">
-                            <a href="#" class="overlay-link"><i class="fa fa-link"></i></a>
+                            <img src="/images/sutek-image-4.jpg" alt="" style="height:200px;">
+                            <a href="{!! url('services') !!}" class="overlay-link"><i class="fa fa-link"></i></a>
                             <div class="overlay-bottom">
                                 <div class="text">
-                                    <p class="lead margin-clear text-left mobile-visible">Service Tow</p>
+                                    <p class="lead margin-clear text-left mobile-visible">Factory Pipeline</p>
                                 </div>
                             </div>
                         </div>
                         <div class="body padding-horizontal-clear">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihil, adipisci rem minus? Voluptatem distinctio laborum porro aspernatur.</p>
+                            <p>200 machines works as shift system.
+                                Independent Heat treatment centers
+                                annual value of production from USD15,800,000 since 2012 to nowadays USD24,450,000.
+                                Made from tungsten steel and being hot-treated ...
+                            </p>
                             <a class="link-dark" href="{!! url('services') !!}">Read More</a>
                         </div>
                     </div>
@@ -84,16 +90,18 @@
                 <div class="col-md-4">
                     <div class="image-box style-2 mb-20 object-non-visible" data-animation-effect="fadeInDown" data-effect-delay="1000">
                         <div class="overlay-container overlay-visible">
-                            <img src="http://placehold.it/750x460/'{!! mt_rand(0, 0xfff) !!}" alt="">
-                            <a href="#" class="overlay-link"><i class="fa fa-link"></i></a>
+                            <img src="/images/sutek-image-5.jpg" alt="" style="height:200px;">
+                            <a href="{!! url('services') !!}" class="overlay-link"><i class="fa fa-link"></i></a>
                             <div class="overlay-bottom">
                                 <div class="text">
-                                    <p class="lead margin-clear text-left mobile-visible">Service Three</p>
+                                    <p class="lead margin-clear text-left mobile-visible">Product Packing</p>
                                 </div>
                             </div>
                         </div>
                         <div class="body padding-horizontal-clear">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque ipsam nihil, adipisci rem minus? Voluptatem distinctio laborum porro aspernatur.</p>
+                            <p>GB 40CR alloy Steel is a high quality Quenched and Tempered Alloy Structural steel,
+                                It belong to the high quality low carbon, Low alloy chromium, molybdenum, nickel case
+                                hardening steel. Oil Quenched & Tempered Hardness ... </p>
                             <a class="link-dark" href="{!! url('services') !!}">Read More</a>
                         </div>
                     </div>
@@ -225,7 +233,7 @@
                             </div>
                             <div class="col-md-4">
                                 <br>
-                                <p><a href="#" class="btn btn-lg btn-gray-transparent btn-animated">Download Now<i class="fa fa-arrow-right pl-20"></i></a></p>
+                                <p><a href="{!! url('downloads') !!}" class="btn btn-lg btn-gray-transparent btn-animated">Download Now<i class="fa fa-arrow-right pl-20"></i></a></p>
                             </div>
                         </div>
                     </div>
