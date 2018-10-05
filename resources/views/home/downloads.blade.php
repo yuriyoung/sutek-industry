@@ -14,7 +14,7 @@
     <section class="main-container">
         <div class="container">
             <div class="row">
-                <table class="table table-striped table-colored table-hover">
+                <table class="table table-colored table-hover">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -29,7 +29,7 @@
                         @endif
                         @foreach($files as $file)
                             @if(!$file['isDir'])
-                                <tr>
+                                <tr class="animated fadeInUp delay-{!! ($loop->index+1) * 200 !!}ms">
                                     <td>{!! $loop->index+1 !!}</td>
                                     <td>
                                         {!! $file['preview'] !!}

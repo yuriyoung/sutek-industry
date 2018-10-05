@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="container poly-container">
-                <img id="poly-image" src="/images/services.png" usemap="#map-image" class="object-non-visible animated object-visible zoomIn">
+                <img id="poly-image" src="/images/services.png" usemap="#map-image" class="animated zoomIn">
                 <map name="map-image" id="map-image">
                     <area shape="poly" coords="570,0, 30,280, 30,348, 570,630, 1135,348, 1135,280">
                 </map>
@@ -94,7 +94,7 @@
         </div>
     </section>
 
-    <section class="pv-40 border-clear padding-bottom-clear plan">
+    <section class="pv-40 border-clear padding-bottom-clear">
         <div class="container">
             <div class="row">
 
@@ -140,11 +140,11 @@
                                 <h3>Factory Pipeline</h3>
                                 <div class="separator-3"></div>
                                 <ul class="list-icons">
-                                    <li class="object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall"><i class="fa fa-check"></i> 200 machines works as shift system.</li>
-                                    <li class="object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall"><i class="fa fa-check"></i> Independent Heat treatment centers</li>
-                                    <li class="object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall"><i class="fa fa-check"></i> annual value of production from USD15,800,000 since 2012 to nowadays USD24,450,000</li>
-                                    <li class="object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall"><i class="fa fa-check"></i> Made from tungsten steel and being hot-treated, the blade is characterized by high accuracy, smooth cutting operation, good resistance to shock and good toughness</li>
-                                    <li class="object-non-visible animated object-visible fadeInUpSmall" data-animation-effect="fadeInUpSmall"><i class="fa fa-check"></i> The drilling efficiency is higher with the three teeth cutter head. In design with curve, the head is good at removing the debris and working efficiently. Sharp and durable</li>
+                                    <li class="object-non-visible animated fadeInUp"><i class="fa fa-check"></i> 200 machines works as shift system.</li>
+                                    <li class="object-non-visible animated fadeInUp"><i class="fa fa-check"></i> Independent Heat treatment centers.</li>
+                                    <li class="object-non-visible animated fadeInUp"><i class="fa fa-check"></i> annual value of production from USD15,800,000 since 2012 to nowadays USD24,450,000.</li>
+                                    <li class="object-non-visible animated fadeInUp"><i class="fa fa-check"></i> Made from tungsten steel and being hot-treated, the blade is characterized by high accuracy, smooth cutting operation, good resistance to shock and good toughness.</li>
+                                    <li class="object-non-visible animated fadeInUp"><i class="fa fa-check"></i> The drilling efficiency is higher with the three teeth cutter head. In design with curve, the head is good at removing the debris and working efficiently. Sharp and durable.</li>
                                 </ul>
                             </div>
                         </div>

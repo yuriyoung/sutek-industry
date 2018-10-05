@@ -9245,3 +9245,92 @@ h6.media-heading {
     float: left;
     margin: 7px 0px 0px 10px;
 }
+
+.splitter .left li.icon{
+    float: right;
+    width: 118px;
+    height: 118px;
+    margin-bottom: 13px;
+    background: url(../images/sutek-image-9.png) no-repeat center top;
+}
+
+.splitter .right li.icon {
+    float: left;
+    width: 118px;
+    height: 118px;
+    margin-bottom: 13px;
+    background: url(../images/sutek-image-9.png) no-repeat center top;
+}
+
+.splitter .left li.icon i,
+.splitter .right li.icon i {
+    color: #272727;
+    font-size: 35px;
+    width: 98px;
+    height: 98px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 98px;
+    border: 1px solid #999;
+    border-radius: 100%;
+    margin-top: 9px;
+}
+
+.splitter .left li p {
+    text-align: right;
+}
+
+.splitter .left ul {
+    float: right;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.splitter .left li {
+    float: right;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    color: #454545;
+}
+
+.splitter .left h3 {
+    float: right;
+    font-weight: 300;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.splitter .right ul {
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.splitter .right li {
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    color: #454545;
+}
+
+.splitter .right h3 {
+    float: left;
+    font-weight: 300;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.splitter .right li p {
+    text-align: left;
+}
+
+.splitter .left ul:hover i,
+.splitter .right ul:hover i {
+    color: #fff;
+    background-color: #09afdf;
+}
+

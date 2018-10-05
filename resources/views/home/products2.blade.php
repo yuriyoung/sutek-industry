@@ -51,7 +51,7 @@
 
                     @if(isset($products))
                         @foreach($products as $product)
-                            <div class="image-box style-3-b style-2 mb-20 shadow-1">
+                            <div class="image-box style-3-b style-2 mb-20 shadow-1 object-non-visible" data-animation-effect="fadeInUp" data-effect-delay="200">
                                 <div class="row">
                                     <div class="col-md-6 col-lg-4 col-xl-4">
                                         <div id="carousel-portfolio{{$loop->index}}" class="carousel slide" data-ride="carousel">
