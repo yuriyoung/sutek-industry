@@ -21,12 +21,9 @@ class FrontController extends Controller
 
     public function __construct()
     {
-        //$categories = Category::whereParentId(0)->get();
-        //$this->dropdownMenu = $this->makeDropdownMenu($categories);
-
         $hotCategories = Category::priorityCategories(30);
 
-        \view()->composer(['home.header'], function (View $view) use($hotCategories) {
+        \view()->composer(['home.header', 'home.footer'], function (View $view) use($hotCategories) {
             $view->with('active', $this->activeMenu)
 //                ->with('dropdownMenu', $this->dropdownMenu)
                 ->with('hotCategories', $hotCategories);
