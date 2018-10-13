@@ -12,7 +12,7 @@ return [
      * Logo in admin panel header.
      */
     'logo' => '<b>Sutek</b> Industry',
-    'logo_image' => '/images/logo-light.png',
+    'logo_image' => '/images/logo.png',
 
     /*
      * Mini-logo in admin panel header.
