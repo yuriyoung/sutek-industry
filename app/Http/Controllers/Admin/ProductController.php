@@ -303,7 +303,7 @@ class ProductController extends Controller
      */
     public function form($id = null)
     {
-        Admin::script("$('#title').on('input', function(e){ " . (!$id ? "$('#slug').val(e.delegateTarget.value);" : "") . " });");
+        Admin::script("$('#title').on('input', function(e){ " . (is_null($id) ? "$('#slug').val(e.delegateTarget.value);" : "") . " });");
 
         $form = new Form(new Product);
         $form->disableViewCheck();
@@ -323,7 +323,8 @@ class ProductController extends Controller
             $form->html(__('admin.helper.description.product'));
             $form->multipleImage('images', trans('admin.image'))
                 ->uniqueName()
-                ->removable()->rules('mimes:jpeg,jpg,png')
+                ->removable()
+                ->rules('required|mimes:jpeg,jpg,png')
                 ->help(__('admin.helper.product_image'));
             $form->select('status', trans('admin.status'))->options([0 => '草稿', 1 => '发布'])->setWidth(2)->default(1);
             $form->number('views', trans('admin.views'))->default('0');
@@ -344,7 +345,7 @@ class ProductController extends Controller
             {
                 $form->multipleSelect('specs', ucfirst($name))->options(function () use($name) {
                     return Spec::whereName($name)->pluck('value', 'id');
-                })->setWidth(4)->placeholder(trans('admin.select') . trans('admin.spec') . ' ' . ucfirst($name));
+                })->setWidth(4)->config('placeholder', trans('admin.select') . trans('admin.spec') . ' ' . ucfirst($name));
             }
         });
 
