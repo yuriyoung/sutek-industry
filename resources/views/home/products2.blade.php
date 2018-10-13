@@ -127,17 +127,31 @@
                 <aside class="col-lg-3 col-xl-3">
                     <div class="sidebar">
                         <div class="block clearfix">
+
                             <h3 class="title">Categories</h3>
                             <div class="separator-2"></div>
-                            <div id="accordion" class="collapse-style-1" role="tablist" aria-multiselectable="true">
-                                <nav id="accordion">
+                            <div class="collapse-style-1" role="tablist" aria-multiselectable="true">
+                                <nav id="accordion1">
                                     <ul class="nav flex-column">
-                                        @if(isset($sidebarMenu))
-                                            {!! $sidebarMenu !!}
+                                        @if(isset($sidebarCategory))
+                                            {!! $sidebarCategory !!}
                                         @endif
                                     </ul>
                                 </nav>
                             </div>
+
+                            <h3 class="title mt-4">Specification</h3>
+                            <div class="separator-2"></div>
+                            <div class="collapse-style-1" role="tablist" aria-multiselectable="true">
+                                <nav id="accordion2">
+                                    <ul class="nav flex-column">
+                                        @if(isset($sidebarSpec))
+                                            {!! $sidebarSpec !!}
+                                        @endif
+                                    </ul>
+                                </nav>
+                            </div>
+
                         </div>
                     </div>
                 </aside>
