@@ -149,8 +149,11 @@ class Product extends Model
             }
             $product->id = $id;
 
-            // 移动图片到产品id目录下，同时修改images路径
-            $product->_processImages();
+            if (request()->hasFile('images'))
+            {
+                // 移动图片到产品id目录下，同时修改images路径
+                $product->_processImages();
+            }
         });
 
         static::updating(function(Product $product){
