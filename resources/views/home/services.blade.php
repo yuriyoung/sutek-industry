@@ -169,7 +169,7 @@
                                     GB 40CR alloy Steel is a high quality Quenched and Tempered Alloy Structural steel, It belong to the high quality low carbon, Low alloy chromium, molybdenum, nickel case hardening steel. Oil Quenched & Tempered Hardness is 28-34 HRc. GB 40CR steel Annealing delivery hardenss less than 250HB.40CR wiith a lower carbon content range, So GB 40CR alloy steel have good weldability.
                                 </p>
                                 <br>
-                                <a href="#" class="btn btn-lg btn-default-transparent btn-sm btn-animated margin-clear">Read More<i class="fa fa-arrow-right pl-10"></i></a>
+                                {{--<a href="#" class="btn btn-lg btn-default-transparent btn-sm btn-animated margin-clear">Read More<i class="fa fa-arrow-right pl-10"></i></a>--}}
                             </div>
                         </div>
                     </div>
@@ -232,6 +232,66 @@
                             </div>
                         </div>
 
+                        <div class="card">
+                            <div class="card-header" role="tab" id="heading-2">
+                                <h4 class="mb-0">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-3" class="collapsed" aria-expanded="true" aria-controls="collapse-2">
+                                        <i class="fa fa-question-circle pr-10"></i>Can I check stock online?
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse-3" class="collapse" role="tabpanel" aria-labelledby="heading-2">
+                                <div class="card-block">
+                                    Please check with our customer service online. You can follow our Skype or WeChat(see the site QR-Code).
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" role="tab" id="heading-2">
+                                <h4 class="mb-0">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-4" class="collapsed" aria-expanded="true" aria-controls="collapse-2">
+                                        <i class="fa fa-question-circle pr-10"></i>How can I become a distributor?
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse-4" class="collapse" role="tabpanel" aria-labelledby="heading-2">
+                                <div class="card-block">
+                                    Contact <strong>{{ config('app.email') }}</strong> and one of our sales representatives will assist you with the application process.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" role="tab" id="heading-2">
+                                <h4 class="mb-0">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-5" class="collapsed" aria-expanded="true" aria-controls="collapse-2">
+                                        <i class="fa fa-question-circle pr-10"></i>How do Back-Orders work?
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse-5" class="collapse" role="tabpanel" aria-labelledby="heading-2">
+                                <div class="card-block">
+                                    If the merchandise ordered is not in stock, it will be placed on back-order. The back-order is not to exceed a sixty (60) day period. Unless we have customer authorization to hold merchandise longer than 60 days, it will automatically be cancelled.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" role="tab" id="heading-2">
+                                <h4 class="mb-0">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-6" class="collapsed" aria-expanded="true" aria-controls="collapse-2">
+                                        <i class="fa fa-question-circle pr-10"></i>Damaged, Lost or Short Shipments?
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse-6" class="collapse" role="tabpanel" aria-labelledby="heading-2">
+                                <div class="card-block">
+                                    ou must notify your local carrier's office no later than five (5) days after receipt of the merchandise.
+                                    Please advise us of the incidents, so that we can reship your merchandise and place a claim. Keep all goods and containers for inspection until advised to dispose.
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
