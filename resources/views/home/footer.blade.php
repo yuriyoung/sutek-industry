@@ -30,7 +30,7 @@
                         <div class="footer-content">
                             <h2 class="title">Subscribe</h2>
                             <div class="separator-2"></div>
-                            <p>Lorem ipsum dolor sit amet accusamus excepturi sint dicta maxime?</p>
+                            <p>Subscribe us for latest drill bits and news.</p>
                             <form>
                                 <div class="form-row align-items-center">
                                     <div class="col-sm-8 margin-clear form-group has-feedback">
