@@ -35,6 +35,7 @@ class ProductController extends FrontController
         }
 
         $cat = null;
+        $spec = null;
         if ($request->has('category'))
         {
             $cat = Category::findBySlugOrFail($request->get('category'));
@@ -70,12 +71,15 @@ class ProductController extends FrontController
         }
 
         $categories = Category::whereParentId(0)->get();
-        $sidebarMenu = $this->_make_sidebarMenu($categories, $cat);
+        $specs = Spec::all()->groupBy('name');
+        $sidebarCategory = $this->_sidebar_category($categories, $cat);
+        $sidebarSpec =  $this->_sidebar_spec($specs, $spec);
 
         return view('home.products2', [
             'products' => $products,
             'title'    => $title,
-            'sidebarMenu' => isset($sidebarMenu) ? $sidebarMenu : null,
+            'sidebarCategory' => isset($sidebarCategory) ? $sidebarCategory : null,
+            'sidebarSpec' => isset($sidebarSpec) ? $sidebarSpec : null,
             'search' => isset($search) ? $search : null,
         ]);
     }
@@ -130,22 +134,28 @@ class ProductController extends FrontController
         return response()->json($cats);
     }
 
-
-
-    private function _make_sidebarMenu($categories, $current_cat)
+    /**
+     * make a tree category sidebar menu
+     *
+     * @Author: Yuri Young<yuri.young@qq.com>
+     * @param $categories
+     * @param $current_cat
+     * @return string
+     */
+    private function _sidebar_category($categories, $current_cat)
     {
         $html = '';
         foreach ($categories as $index => $cat)
         {
             if(count($cat->children) > 0 || !$cat->parent)
             {
-                $expanded = isset($current_cat) ? (($current_cat->parent ? $current_cat->parent->id : -1) == $cat->id ? 'true' : 'false') : 'false';
-                $collapsed = $expanded == 'false' ? 'collapsed' : '';
-                $show = $expanded == 'true' ? 'show' : '';
+                $expanded = isset($current_cat) ? (($current_cat->parent ? $current_cat->parent->id : -1) == $cat->id ? true : false) : false;
+                $collapsed = $expanded ? '' : 'collapsed';
+                $show = $expanded ? 'show' : '';
                 $html .= "<li class=\"nav-item\">";
                 $html .= "<a  class=\"nav-link {$collapsed}\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse{$index}\" aria-expanded=\"{$expanded}\" aria-controls=\"collapse{$index}\"><i class=\"fa fa-list-ul\"></i> {$cat->name} <span class=\"badge\">".count($cat->children)."</span></a>";
                 $html .= "<ul class=\"menu collapse {$show}\" id=\"collapse{$index}\">";
-                $html .= $this->_make_sidebarMenu($cat->children, $current_cat);
+                $html .= $this->_sidebar_category($cat->children, $current_cat);
                 $html = $html . "</ul></li>";
 
             }
@@ -156,6 +166,41 @@ class ProductController extends FrontController
                 $html .= "<li class=\"nav-item\"><a class=\"nav-link {$active}\" href=\"{$link}\"><i class=\"fa fa-list-ul\"></i> {$cat->name}<span class=\"badge default-bg pull-right\">" . count($cat->products) . "</span></a></li>";
             }
         }
+        return $html;
+    }
+
+    /**
+     *
+     * make a parent-children specs sidebar menu
+     *
+     * @Author: Yuri Young<yuri.young@qq.com>
+     * @param string $current_item
+     * @param array $collect
+     */
+    private function _sidebar_spec($collect = [], $current_item)
+    {
+        $html = '';
+
+        foreach ($collect as $name => $specs)
+        {
+            $name_slug = str_slug($name);
+            $expanded = isset($current_item) ? ($name === $current_item->name ? true : false) : false;
+            $collapsed = $expanded ? '' : 'collapsed';
+            $show = $expanded ? 'show' : '';
+            $html .= "<li class=\"nav-item\">";
+            $html .= "<a  class=\"nav-link {$collapsed}\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse_{$name_slug}\" aria-expanded=\"{$expanded}\" aria-controls=\"collapse_{$name_slug}\"><i class=\"fa fa-list-ul\"></i> {$name} <span class=\"badge\">".count($specs)."</span></a>";
+            $html .= "<ul class=\"menu collapse {$show}\" id=\"collapse_{$name_slug}\">";
+
+            foreach ($specs as $spec)
+            {
+                $active = isset($current_item) ? ($current_item->id === $spec->id ? 'active' : '') : '';
+                $link = url('/products?spec='.$spec->slug);
+                $html .= "<li class=\"nav-item\"><a class=\"nav-link {$active}\" href=\"{$link}\"><i class=\"fa fa-list-ul\"></i> {$spec->value}<span class=\"badge default-bg pull-right\">" . count($spec->products) . "</span></a></li>";
+            }
+
+            $html = $html . "</ul></li>";
+        }
+
         return $html;
     }
 }
