@@ -18,7 +18,7 @@ use Encore\Admin\Widgets\Box;
 use Encore\Admin\Grid;
 use Encore\Admin\Widgets\InfoBox;
 
-class AdminController extends Controller
+class DashboardController extends Controller
 {
     public function index()
     {
