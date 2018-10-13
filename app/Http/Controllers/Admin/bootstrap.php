@@ -25,7 +25,7 @@ use Encore\Admin\Admin;
 use Encore\Admin\Form;
 use Encore\Admin\Grid\Column;
 
-//Admin::js('js/jquery.slugit.js');
+app('view')->prependNamespace('admin', resource_path('views/admin'));
 Form::extend('editor', WangEditor::class);
 //Form::extend('slider', SliderRevolution::class);
 Column::extend('popover', Popover::class);
