@@ -307,6 +307,12 @@ class ProductController extends Controller
 
         $form = new Form(new Product);
         $form->disableViewCheck();
+        if (is_null($id))
+        {
+            $form->tools(function (Form\Tools $tools){
+                $tools->disableDelete();
+            });
+        }
 
         $form->tab('基本', function (Form $form) use ($id) {
             $form->display('id', 'ID');

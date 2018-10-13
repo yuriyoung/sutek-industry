@@ -173,52 +173,54 @@ class SpecController extends Controller
              }
          });");
 
-        return Admin::form(Spec::class, function (Form $form) {
-
-            $form->disableViewCheck();
+        $form = new Form(new Spec);
+        $form->disableViewCheck();
+        if (is_null($id))
+        {
             $form->tools(function (Form\Tools $tools){
                 $tools->disableDelete();
             });
+        }
 
-            $form->display('id', 'ID')->setWidth(2);
-            $form->select('name', trans('admin.spec_name'))->options(Spec::names())
-                ->rules('required')->setWidth(6)->help(trans('admin.helper.spec_name'));
+        $form->display('id', 'ID')->setWidth(2);
+        $form->select('name', trans('admin.spec_name'))->options(Spec::names())
+            ->rules('required')->setWidth(6)->help(trans('admin.helper.spec_name'));
 
-            $states = [
-                'off'  => ['value' => 0, 'text' => '新建', 'color' => 'success'],
-                'on' => ['value' => 1, 'text' => '取消', 'color' => 'info'],
-            ];
-            $form->switch('new_name_switch', __('admin.spec_name_new_label'))->states($states);
-            $form->text('new_name', trans('admin.spec_name_new'))->setWidth(6)
-                ->rules('required_unless:new_name_switch,off')->help(trans('admin.helper.spec_new'));
-            $form->text('value', trans('admin.spec_value'))->rules('required|min:2|max:32')->help(trans('admin.helper.spec_value'));
-            $form->text('slug', trans('admin.slug'))->prepend('<i class="fa fa-internet-explorer fa-fw"></i>')->help(trans('admin.helper.slug'));
-            $form->number('views', trans('admin.views'))->default(0);
+        $states = [
+            'off'  => ['value' => 0, 'text' => '新建', 'color' => 'success'],
+            'on' => ['value' => 1, 'text' => '取消', 'color' => 'info'],
+        ];
+        $form->switch('new_name_switch', __('admin.spec_name_new_label'))->states($states);
+        $form->text('new_name', trans('admin.spec_name_new'))->setWidth(6)
+            ->rules('required_unless:new_name_switch,off')->help(trans('admin.helper.spec_new'));
+        $form->text('value', trans('admin.spec_value'))->rules('required|min:2|max:32')->help(trans('admin.helper.spec_value'));
+        $form->text('slug', trans('admin.slug'))->prepend('<i class="fa fa-internet-explorer fa-fw"></i>')->help(trans('admin.helper.slug'));
+        $form->number('views', trans('admin.views'))->default(0);
 
-            $form->datetime('created_at', trans('admin.created_at'));
-            $form->datetime('updated_at', trans('admin.updated_at'));
+        $form->datetime('created_at', trans('admin.created_at'));
+        $form->datetime('updated_at', trans('admin.updated_at'));
 
-            $form->ignore(['new_name_switch', 'new_name']);
+        $form->ignore(['new_name_switch', 'new_name']);
 
-            $form->saving(function (Form $form) {
-                // check duplication
-                $total = Spec::whereName($form->name)->whereValue($form->value)->count();
-                if ($total > 0)
-                {
-                    $error = new MessageBag([
-                        'status' => false,
-                        'message' => "规格参数为 '{$form->name}' 的值  '{$form->value}'  已经存在！"
-                    ]);
-                    return back()->with(compact('error'));
-                }
+        $form->saving(function (Form $form) {
+            // check duplication
+            $total = Spec::whereName($form->name)->whereValue($form->value)->count();
+            if ($total > 0)
+            {
+                $error = new MessageBag([
+                    'status' => false,
+                    'message' => "规格参数为 '{$form->name}' 的值  '{$form->value}'  已经存在！"
+                ]);
+                return back()->with(compact('error'));
+            }
 
-                if ($form->slug)
-                {
-                    $form->slug = SlugService::createSlug(Spec::class, 'slug', $form->slug, ['unique' => true]);
-                }
-            });
-
+            if ($form->slug)
+            {
+                $form->slug = SlugService::createSlug(Spec::class, 'slug', $form->slug, ['unique' => true]);
+            }
         });
+
+        return $form;
     }
 
 }
