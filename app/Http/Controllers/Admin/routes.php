@@ -12,9 +12,9 @@ Route::group([
     'middleware'    => config('admin.route.middleware'),
 ], function (Router $router) {
 
-    $router->get('/', 'AdminController@index');
-    $router->get('downloadlog', 'AdminController@download_log');
-    $router->get('slider', 'AdminController@slider');
+    $router->get('/', 'DashboardController@index');
+    $router->get('downloadlog', 'DashboardController@download_log');
+    $router->get('slider', 'DashboardController@slider');
 
     $router->resource('products', 'ProductController');
     $router->get('categories/options', 'CategoryController@options');
