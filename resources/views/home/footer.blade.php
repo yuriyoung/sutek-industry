@@ -28,6 +28,37 @@
 
                     <div class="col-lg-6">
                         <div class="footer-content">
+                            <h2 class="title">Subscribe</h2>
+                            <div class="separator-2"></div>
+                            <p>Lorem ipsum dolor sit amet accusamus excepturi sint dicta maxime?</p>
+                            <form>
+                                <div class="form-row align-items-center">
+                                    <div class="col-sm-8 margin-clear form-group has-feedback">
+                                        <label class="sr-only" for="subscribe">Email address</label>
+                                        <input type="email" class="form-control" id="subscribe" placeholder="Enter email" required>
+                                        <i class="fa fa-envelope form-control-feedback"></i>
+                                    </div>
+                                    <div class="pull-right col-auto">
+                                        <button type="submit" class="btn btn-default btn-animated">Subscribe<i class="fa fa-send"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="separator"></div>
+
+                            <h2 class="title">Popular Tags</h2>
+                            <div class="separator-2"></div>
+                            <div class="tags-cloud">
+                                @if(isset($hotCategories))
+                                    @foreach($hotCategories as $category)
+                                        <div class="tag">
+                                            <a href="{!! url('/products?category='.$category->slug) !!}">{!! $category->name !!}</a>
+                                        </div>
+                                        @if($loop->index >= 24)
+                                            @break;
+                                        @endif
+                                    @endforeach
+                                @endif
+                            </div>
                         </div>
                     </div>
 
