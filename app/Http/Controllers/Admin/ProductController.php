@@ -6,6 +6,8 @@ use App\Exceptions\Handler;
 use App\Http\Controllers\Admin\Extensions\Tools\RowCreateButton;
 use App\Models\Size;
 use Encore\Admin\Layout\Column;
+use Encore\Admin\Show;
+use Encore\Admin\Widgets\Table;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -41,19 +43,18 @@ class ProductController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Show interface.
      *
-     * @param  int|string  $id
-     * @return \Illuminate\Http\Response
+     * @param mixed   $id
+     * @param Content $content
+     * @return Content
      */
-    public function show($id)
+    public function show($id, Content $content)
     {
-        $product = Product::find($id);
-        if (!$product)
-            $product = Product::findBySlugOrFail($id);
-
-
-        return response()->json($product);
+        return $content
+            ->header('Detail')
+            ->description('description')
+            ->body($this->detail($id));
     }
 
     /**
@@ -134,13 +135,11 @@ class ProductController extends Controller
      *
      * @return \Encore\Admin\Layout\Content
      */
-    public function create()
+    public function create(Content $content)
     {
-        return Admin::content(function (Content $content) {
-            $content->header(trans('admin.product'));
-            $content->description(trans('admin.create'));
-            $content->body($this->form());
-        });
+        return $content->header(trans('admin.product'))
+            ->description(trans('admin.create'))
+            ->body($this->form());
     }
 
     /**
@@ -149,13 +148,12 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Encore\Admin\Layout\Content
      */
-    public function edit($id)
+    public function edit($id, Content $content)
     {
-        return Admin::content(function (Content $content) use ($id) {
-            $content->header(trans('admin.product'));
-            $content->description(trans('admin.edit'));
-            $content->body($this->form($id)->edit($id));
-        });
+        return $content
+            ->header(trans('admin.product'))
+            ->description(trans('admin.edit'))
+            ->body($this->form($id)->edit($id));
     }
 
     /**
@@ -224,6 +222,79 @@ class ProductController extends Controller
     }
 
     /**
+     * Make a show builder.
+     *
+     * @param mixed   $id
+     * @return Show
+     */
+    protected function detail($id)
+    {
+        $show = new Show(Product::findOrFail($id));
+
+        $show->id('ID');
+        $show->title(trans('admin.title'));
+        $show->slug(trans('admin.slug'));
+        $show->category()->name(trans('admin.category'));
+        $show->description(trans('admin.description'))->unescape();
+        $show->thumbs(trans('admin.image'))->as(function ($thumbs) {
+            $images = array_map(function ($thumb) {
+                $link = url('media').'/'.$thumb;
+                return "<img src='{$link}' class='img-thumbnail' width='100' height='80'>";
+            }, $thumbs);
+            return join('&nbsp;', $images);
+        })->unescape();
+        $show->views(trans('admin.views'));
+        $show->likes(trans('admin.likes'));
+        $show->status(trans('admin.status'))->using([
+            0 => trans('admin.draft'),
+            1 => trans('admin.published'),
+            2 => trans('admin.trashed'),
+            3 => trans('admin.error'),
+        ]);
+
+        $show->created_at(trans('admin.created_at'));
+        $show->updated_at(trans('admin.updated_at'));
+
+        $show->specs(trans('admin.spec'))->as(function ($specs) {
+            $headers = [trans('admin.spec_name'), trans('admin.spec_value')];
+
+            $specs = $specs->groupBy('name')->toArray();
+            $rows = array_map(function ($values){
+                $labels = '';
+                foreach ($values as $spec)
+                {
+                    $labels .= "<span class='label label-success'>{$spec['value']}</span> ";
+                }
+                return $labels;
+            }, $specs);
+
+            $table = new Table($headers, $rows);
+
+            return $table->render();
+        })->unescape();
+
+        $show->sizes(trans('admin.size'))->as(function ($sizes) {
+            $headers = ['DIA.', 'Dec. Equ.', 'Flute length', 'Diameter', 'Shank Diameter', 'OAL', 'Number of Flutes'];
+            $values = array_map(function ($size) {
+                return [
+                    $size['diameter'],
+                    $size['equivalence'],
+                    $size['flute_length'],
+                    $size['diameter'],
+                    $size['shank_diameter'],
+                    $size['overall_length'],
+                    $size['flutes']
+                ];
+            }, $sizes->toArray());
+
+            $table = new Table($headers, $values);
+            return $table->render();
+        })->unescape();
+
+        return $show;
+    }
+
+    /**
      * Make a form builder.
      *
      * @param string $id
@@ -234,96 +305,92 @@ class ProductController extends Controller
     {
         Admin::script("$('#title').on('input', function(e){ " . (!$id ? "$('#slug').val(e.delegateTarget.value);" : "") . " });");
 
-        return Admin::form(Product::class, function (Form $form) use ($id) {
+        $form = new Form(new Product);
+        $form->disableViewCheck();
 
-            $form->disableViewCheck();
-            $form->tools(function (Form\Tools $tools){
-                $tools->disableDelete();
-                $tools->disableView();
-            });
-
-            $form->tab('基本', function (Form $form) use ($id) {
-                $form->display('id', 'ID');
-                $form->select('category_id',trans('admin.category'))->options(Category::selectOptions())->help(__('admin.helper.product_category', ['url' => admin_url('categories')]));
-                $form->text('title', trans('admin.title'))->rules('required|min:8|max:64')->help(__('admin.helper.product_title', ['max' => '64']));
-                $form->text('slug', trans('admin.slug'))->prepend('<i class="fa fa-internet-explorer fa-fw"></i>' . url('products') . '/')->help(__('admin.helper.slug'));
-                $form->editor('description', trans('admin.description'))->rules('required');
-                $form->html(__('admin.helper.description.product'));
-                $form->multipleImage('images', trans('admin.image'))
-                    ->uniqueName()
-                    ->removable()->rules('mimes:jpeg,jpg,png')
-                    ->help(__('admin.helper.product_image'));
-                $form->select('status', trans('admin.status'))->options([0 => '草稿', 1 => '发布'])->setWidth(2)->default(1);
-                $form->number('views', trans('admin.views'))->default('0');
-                $form->number('likes', trans('admin.likes'))->default('0');
-
-                if ($id)
-                {
-                    $form->datetime('created_at', trans('admin.created_at'));
-                    $form->datetime('updated_at', trans('admin.updated_at'));
-                }
-            });
-
-            $form->tab('规格', function (Form $form){
-                $notice = __('admin.helper.product_notice', ['url' => admin_url('specs/create')]);
-                $form->html("<span class='text-warning'><i class='fa fa-exclamation'></i> {$notice}</span>", '');
-                $names = Spec::names();
-                foreach ($names as $name)
-                {
-                    $form->multipleSelect('specs', ucfirst($name))->options(function () use($name) {
-                        return Spec::whereName($name)->pluck('value', 'id');
-                    })->setWidth(4)->placeholder(trans('admin.select') . trans('admin.spec') . ' ' . ucfirst($name));
-                }
-            });
+        $form->tab('基本', function (Form $form) use ($id) {
+            $form->display('id', 'ID');
+            $form->select('category_id',trans('admin.category'))->options(Category::selectOptions())->help(__('admin.helper.product_category', ['url' => admin_url('categories')]));
+            $form->text('title', trans('admin.title'))->rules('required|min:8|max:64')->help(__('admin.helper.product_title', ['max' => '64']));
+            $form->text('slug', trans('admin.slug'))->prepend('<i class="fa fa-internet-explorer fa-fw"></i>' . url('products') . '/')->help(__('admin.helper.slug'));
+            $form->editor('description', trans('admin.description'))->rules('required');
+            $form->html(__('admin.helper.description.product'));
+            $form->multipleImage('images', trans('admin.image'))
+                ->uniqueName()
+                ->removable()->rules('mimes:jpeg,jpg,png')
+                ->help(__('admin.helper.product_image'));
+            $form->select('status', trans('admin.status'))->options([0 => '草稿', 1 => '发布'])->setWidth(2)->default(1);
+            $form->number('views', trans('admin.views'))->default('0');
+            $form->number('likes', trans('admin.likes'))->default('0');
 
             if ($id)
             {
-                $form->tab('尺寸', function (Form $form) use($id) {
-                    $size_helper = trans('admin.helper.product_size_notice');
-                    $form->html("<div class='help-block'>{$size_helper}</div>")->setWidth(12);
-
-                    $grid = Admin::Grid(Size::class, function (Grid $grid) use($id) {
-                        $grid->model()->where('product_id', $id);
-                    });
-
-                    $grid->id('ID')->sortable();
-                    $grid->product_id('Product')->sortable();
-                    $grid->diameter('DIA.')->editable()->sortable();
-                    $grid->equivalence('Dec. Equ.')->editable()->sortable();
-                    $grid->flute_length('Flute length')->editable()->sortable();
-                    $grid->shank_diameter('Shank Diameter')->editable()->sortable();
-                    $grid->overall_length('OAL')->editable()->sortable();
-                    $grid->flutes('Number of Flutes')->editable()->sortable();
-
-                    $grid->tools(function (Grid\Tools $tools) use ($grid, $id) {
-                        $tools->append(new RowCreateButton($grid, $id));
-                    });
-
-                    $grid->setResource(admin_url('sizes'));
-
-                    $grid->disableCreateButton();
-                    $grid->disableFilter();
-                    $grid->disableExport();
-                    $grid->disablePagination();
-                    $grid->tools->disableRefreshButton();
-                    $grid->tools->disableFilterButton();
-                    $grid->tools->disableBatchActions();
-                    $grid->actions(function (Grid\Displayers\Actions $actions){
-                        $actions->disableEdit();
-                        $actions->disableView();
-                    });
-
-                    $form->html($grid->render())->setWidth(12);
-                });
+                $form->datetime('created_at', trans('admin.created_at'));
+                $form->datetime('updated_at', trans('admin.updated_at'));
             }
-
-            $form->saving(function (Form $form){
-                if ($form->slug)
-                {
-                    $form->slug = SlugService::createSlug(Product::class, 'slug', $form->slug, ['unique' => true, 'includeTrashed' => true]);
-                }
-            });
         });
+
+        $form->tab('规格', function (Form $form){
+            $notice = __('admin.helper.product_notice', ['url' => admin_url('specs/create')]);
+            $form->html("<span class='text-warning'><i class='fa fa-exclamation'></i> {$notice}</span>", '');
+            $names = Spec::names();
+            foreach ($names as $name)
+            {
+                $form->multipleSelect('specs', ucfirst($name))->options(function () use($name) {
+                    return Spec::whereName($name)->pluck('value', 'id');
+                })->setWidth(4)->placeholder(trans('admin.select') . trans('admin.spec') . ' ' . ucfirst($name));
+            }
+        });
+
+        if ($id)
+        {
+            $form->tab('尺寸', function (Form $form) use($id) {
+                $size_helper = trans('admin.helper.product_size_notice');
+                $form->html("<div class='help-block'>{$size_helper}</div>")->setWidth(12);
+
+                $grid = Admin::Grid(Size::class, function (Grid $grid) use($id) {
+                    $grid->model()->where('product_id', $id);
+                });
+
+                $grid->id('ID')->sortable();
+                $grid->product_id('Product')->sortable();
+                $grid->diameter('DIA.')->editable()->sortable();
+                $grid->equivalence('Dec. Equ.')->editable()->sortable();
+                $grid->flute_length('Flute length')->editable()->sortable();
+                $grid->shank_diameter('Shank Diameter')->editable()->sortable();
+                $grid->overall_length('OAL')->editable()->sortable();
+                $grid->flutes('Number of Flutes')->editable()->sortable();
+
+                $grid->tools(function (Grid\Tools $tools) use ($grid, $id) {
+                    $tools->append(new RowCreateButton($grid, $id));
+                });
+
+                $grid->setResource(admin_url('sizes'));
+
+                $grid->disableCreateButton();
+                $grid->disableFilter();
+                $grid->disableExport();
+                $grid->disablePagination();
+                $grid->tools->disableRefreshButton();
+                $grid->tools->disableFilterButton();
+                $grid->tools->disableBatchActions();
+                $grid->actions(function (Grid\Displayers\Actions $actions){
+                    $actions->disableEdit();
+                    $actions->disableView();
+                });
+
+                $form->html($grid->render())->setWidth(12);
+            });
+        }
+
+        $form->saving(function (Form $form){
+            if ($form->slug)
+            {
+                $form->slug = SlugService::createSlug(Product::class, 'slug', $form->slug, ['unique' => true, 'includeTrashed' => true]);
+            }
+        });
+
+        return $form;
     }
 
     private function _sequenceName(UploadedFile $file)

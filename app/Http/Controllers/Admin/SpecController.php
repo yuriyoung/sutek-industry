@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Cviebrock\EloquentSluggable\Services\SlugService;
+use Encore\Admin\Show;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
 use App\Models\Spec;
@@ -29,6 +30,21 @@ class SpecController extends Controller
             $content->description(__('admin.list'));
             $content->body($this->grid()->render());
         });
+    }
+
+    /**
+     * Show interface.
+     *
+     * @param mixed   $id
+     * @param Content $content
+     * @return Content
+     */
+    public function show($id, Content $content)
+    {
+        return $content
+            ->header(trans('admin.detail'))
+            ->description(trans('admin.description'))
+            ->body($this->detail($id));
     }
 
     /**
@@ -96,6 +112,28 @@ class SpecController extends Controller
     }
 
     /**
+     * Make a show builder.
+     *
+     * @param mixed   $id
+     * @return Show
+     */
+    protected function detail($id)
+    {
+        $show = new Show(Spec::findOrFail($id));
+
+        $show->id('ID');
+        $show->icon(trans('admin.icon'));
+        $show->name(trans('admin.spec_name'));
+        $show->value(trans('admin.spec_value'));
+        $show->slug(trans('admin.slug'));
+        $show->views(trans('admin.views'));
+        $show->created_at('Created at');
+        $show->updated_at('Updated at');
+
+        return $show;
+    }
+
+    /**
      * Make a form builder.
      *
      * @param  int  $id
@@ -135,9 +173,7 @@ class SpecController extends Controller
              }
          });");
 
-        $spec = Spec::find($id);
-
-        return Admin::form(Spec::class, function (Form $form) use($spec) {
+        return Admin::form(Spec::class, function (Form $form) {
 
             $form->disableViewCheck();
             $form->tools(function (Form\Tools $tools){
@@ -146,7 +182,7 @@ class SpecController extends Controller
 
             $form->display('id', 'ID')->setWidth(2);
             $form->select('name', trans('admin.spec_name'))->options(Spec::names())
-                ->rules('required')->setWidth(4)->help(trans('admin.helper.spec_name'));
+                ->rules('required')->setWidth(6)->help(trans('admin.helper.spec_name'));
 
             $states = [
                 'off'  => ['value' => 0, 'text' => '新建', 'color' => 'success'],
@@ -157,8 +193,8 @@ class SpecController extends Controller
                 ->rules('required_unless:new_name_switch,off')->help(trans('admin.helper.spec_new'));
             $form->text('value', trans('admin.spec_value'))->rules('required|min:2|max:32')->help(trans('admin.helper.spec_value'));
             $form->text('slug', trans('admin.slug'))->prepend('<i class="fa fa-internet-explorer fa-fw"></i>')->help(trans('admin.helper.slug'));
-
             $form->number('views', trans('admin.views'))->default(0);
+
             $form->datetime('created_at', trans('admin.created_at'));
             $form->datetime('updated_at', trans('admin.updated_at'));
 
