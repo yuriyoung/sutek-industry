@@ -58,7 +58,7 @@
                                     @endif
                                     @foreach($product->images as $image)
                                         <div class="overlay-container overlay-visible">
-                                            <img src="{!! $product->media_path.$image !!}" class="product-img" alt="">
+                                            <img src="{!! $product->media_path.$image !!}" class="product-img" alt="{!! $product->title !!}">
                                             <div class="overlay-bottom hidden-sm-down">
                                                 <div class="text">
                                                     <h3 class="title">{!! $product->title !!}</h3>
