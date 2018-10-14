@@ -113,7 +113,11 @@
                             </table>
                         </div>
 
-                        <div class="tab-pane" id="pill-3"></div>
+                        <div class="tab-pane embed-responsive embed-responsive-16by9" id="pill-3">
+                            <video class="embed-responsive-item" src="#" poster="/images/poster.png" controls="controls">
+                                This browser does not support the video tag.
+                            </video>
+                        </div>
                     </div> {{--tab-content--}}
 
                     <div class="post-info">
