@@ -105,6 +105,7 @@ class ProductController extends FrontController
         $relates = $relate1->merge($relate2);
 
         $product->views += 1;
+        $product->timestamps = false; /*! 不需要更新updated_at字段 */
         $product->save();
 
         return view('home.product_profile', [
@@ -119,6 +120,7 @@ class ProductController extends FrontController
         {
             $product = Product::findBySlugOrFail($id);
             $product->likes += 1;
+            $product->timestamps = false; /*! 不需要更新updated_at字段 */
             $product->save();
 
             return response()->json(['likes' => $product->likes]);
