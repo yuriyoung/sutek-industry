@@ -40,6 +40,7 @@ class ProductController extends FrontController
         {
             $cat = Category::findBySlugOrFail($request->get('category'));
             $cat->views += 1;
+            $cat->timestamps = false; /*! 不需要更新updated_at字段 */
             $cat->save();
 
             $title = 'Category - ' . ucfirst($cat->name);
@@ -49,6 +50,7 @@ class ProductController extends FrontController
         {
             $spec = Spec::findBySlugOrFail($request->get('spec'));
             $spec->views += 1;
+            $spec->timestamps = false; /*! 不需要更新updated_at字段 */
             $spec->save();
 
             $title = ucfirst($spec->name) .' - ' . strtolower($spec->value);
