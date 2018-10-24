@@ -9,14 +9,14 @@ use Illuminate\Support\MessageBag;
 use App\Models\Spec;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Facades\Admin;
-use Encore\Admin\Controllers\ModelForm;
+use Encore\Admin\Controllers\HasResourceActions;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Grid;
 use Encore\Admin\Form;
 
 class SpecController extends Controller
 {
-    use ModelForm;
+    use HasResourceActions;
 
     /**
      * Display a listing of the resource.
