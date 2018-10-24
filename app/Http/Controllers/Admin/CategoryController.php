@@ -6,7 +6,7 @@ use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
-use Encore\Admin\Controllers\ModelForm;
+use Encore\Admin\Controllers\HasResourceActions;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Widgets\Box;
@@ -17,7 +17,7 @@ use Encore\Admin\Layout\Column;
 
 class CategoryController extends Controller
 {
-    use ModelForm;
+    use HasResourceActions;
 
     /**
      * Display a listing of the resource.
