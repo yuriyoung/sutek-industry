@@ -16,7 +16,7 @@ use App\Models\Category;
 use App\Models\Spec;
 use Illuminate\Http\UploadedFile;
 use Intervention\Image\ImageManagerStatic as Image;
-use Encore\Admin\Controllers\ModelForm;
+use Encore\Admin\Controllers\HasResourceActions;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Grid;
@@ -26,7 +26,7 @@ use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class ProductController extends Controller
 {
-    use ModelForm;
+    use HasResourceActions;
 
     /**
      * Display a listing of the resource.
@@ -201,10 +201,10 @@ class ProductController extends Controller
             $grid->updated_at(trans('admin.updated_at'))->sortable();
             $grid->model()->orderBy('updated_at', 'desc');
 
-            $grid->actions(function (Grid\Displayers\Actions $actions) {
+            $grid->actions(function (Grid\Displayers\Actions $actions) use ($grid) {
                 if($actions->row->status == 2)
                 {
-                    $actions->disableDelete();
+                    $actions->disableView();
                     $actions->disableEdit();
                 }
             });
