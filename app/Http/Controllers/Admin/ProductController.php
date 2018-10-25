@@ -324,7 +324,7 @@ class ProductController extends Controller
             $form->multipleImage('images', trans('admin.image'))
                 ->uniqueName()
                 ->removable()
-                ->rules('required|mimes:jpeg,jpg,png')
+//                ->rules('required|mimes:jpeg,jpg,png')
                 ->help(__('admin.helper.product_image'));
             $form->select('status', trans('admin.status'))->options([0 => '草稿', 1 => '发布'])->setWidth(2)->default(1);
             $form->number('views', trans('admin.views'))->default('0');
