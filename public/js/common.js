@@ -1608,8 +1608,26 @@
                 }
             }
         });
-    })
+    });
 
+    $('#subscribe').on('click', function (e) {
+
+        var email = $('#subscribeInput').val();
+
+        $.ajax({
+            url: '/mail/subscribe',
+            type: "POST",
+            dataType: 'json',
+            data:{"_methoed": "PUT", "_token": $('meta[name="csrf-token"]').attr('content'), 'email': email},
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+            success:function (response) {
+                var $btn = $(e.currentTarget);
+                $btn.addClass('text-success');
+                $btn.html('Submit <i class="fa fa-check text-success"></i>');
+                $btn.attr('disabled', 'true');
+            },
+        });
+    });
 
 })(jQuery);
 

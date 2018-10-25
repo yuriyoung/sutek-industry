@@ -21,6 +21,9 @@ Route::group([
     $router->resource('categories', 'CategoryController', ['except' => ['create']]);
     $router->resource('specs', 'SpecController');
     $router->resource('sizes', 'SizeController');
+    $router->resource('users', 'UserController');
+    $router->resource('roles', 'RoleController');
+    $router->resource('permissions', 'PermissionController');
 
-    $router->get('recover', 'ProductController@recoverImages');
+    //$router->get('recover', 'ProductController@recoverImages');
 });

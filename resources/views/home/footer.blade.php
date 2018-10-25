@@ -31,17 +31,13 @@
                             <h2 class="title">Subscribe</h2>
                             <div class="separator-2"></div>
                             <p>Subscribe us for latest drill bits and news.</p>
-                            <form>
-                                <div class="form-row align-items-center">
-                                    <div class="col-sm-8 margin-clear form-group has-feedback">
-                                        <label class="sr-only" for="subscribe">Email address</label>
-                                        <input type="email" class="form-control" id="subscribe" placeholder="Enter email" required>
-                                        <i class="fa fa-envelope form-control-feedback"></i>
-                                    </div>
-                                    <div class="pull-right col-auto">
-                                        <button type="submit" class="btn btn-default btn-animated">Subscribe<i class="fa fa-send"></i></button>
-                                    </div>
+                            <form class="form-inline margin-clear d-flex justify-content-center" onsubmit="return false;">
+                                <div class="form-group has-feedback mb-sm-3 mb-md-0">
+                                    <label class="sr-only" for="subscribeInput">Email address</label>
+                                    <input type="email" class="form-control form-control-lg" id="subscribeInput" name="email" placeholder="Enter email" required="">
+                                    <i class="fa fa-envelope form-control-feedback"></i>
                                 </div>
+                                <button type="button" id="subscribe" class="btn btn-lg btn-gray-transparent btn-animated margin-clear ml-4">Submit <i class="fa fa-send"></i></button>
                             </form>
                             <div class="separator"></div>
 
@@ -80,7 +76,7 @@
                                 <li class="wechat"><a href="{!! config('st_social_wechat', '#') !!}"><i class="fa fa-wechat"></i></a></li>
                                 <li class="qq"><a href="{!! config('st_social_qq', '#') !!}"><i class="fa fa-qq"></i></a></li>
                                 <li class="weibo"><a href="{!! config('st_social_weibo', '#') !!}"><i class="fa fa-weibo"></i></a></li>
-                                <li class="skype"><a href="{!! config('st_social_skype', '#') !!}"><i class="fa fa-skype"></i></a></li>
+                                {{--<li class="skype"><a href="{!! config('st_social_skype', '#') !!}"><i class="fa fa-skype"></i></a></li>--}}
                                 <li class="facebook"><a href="{!! config('st_social_facebook', '#') !!}"><i class="fa fa-facebook"></i></a></li>
                                 <li class="linkedin"><a href="{!! config('st_social_linkedin', '#') !!}"><i class="fa fa-linkedin"></i></a></li>
                             </ul>
