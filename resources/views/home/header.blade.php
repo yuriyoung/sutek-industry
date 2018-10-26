@@ -10,7 +10,7 @@
                             <li class="wechat"><a href="{!! config('st_social_wechat', '#') !!}"><i class="fa fa-wechat"></i></a></li>
                             <li class="qq"><a href="{!! config('st_social_qq', '#') !!}"><i class="fa fa-qq"></i></a></li>
                             <li class="weibo"><a href="{!! config('st_social_weibo', '#') !!}"><i class="fa fa-weibo"></i></a></li>
-                            <li class="skype"><a href="{!! config('st_social_skype', '#') !!}"><i class="fa fa-skype"></i></a></li>
+{{--                            <li class="skype"><a href="{!! config('st_social_skype', '#') !!}"><i class="fa fa-skype"></i></a></li>--}}
                             <li class="linkedin"><a href="{!! config('st_social_linkedin', '#') !!}"><i class="fa fa-linkedin"></i></a></li>
                             <li class="facebook"><a href="{!! config('st_social_facebook', '#') !!}"><i class="fa fa-facebook"></i></a></li>
                         </ul>
@@ -22,7 +22,7 @@
                                     <li class="wechat"><a href="{!! config('st_social_wechat', '#') !!}"><i class="fa fa-wechat"></i></a></li>
                                     <li class="qq"><a href="{!! config('st_social_qq', '#') !!}"><i class="fa fa-qq"></i></a></li>
                                     <li class="weibo"><a href="{!! config('st_social_weibo', '#') !!}"><i class="fa fa-weibo"></i></a></li>
-                                    <li class="skype"><a href="{!! config('st_social_skype', '#') !!}"><i class="fa fa-skype"></i></a></li>
+                                    {{--<li class="skype"><a href="{!! config('st_social_skype', '#') !!}"><i class="fa fa-skype"></i></a></li>--}}
                                     <li class="linkedin"><a href="{!! config('st_social_linkedin', '#') !!}"><i class="fa fa-linkedin"></i></a></li>
                                     <li class="facebook"><a href="{!! config('st_social_facebook', '#') !!}"><i class="fa fa-facebook"></i></a></li>
                                 </ul>
@@ -116,11 +116,11 @@
                                                                     <ul class="menu">
                                                                         @if(isset($hotCategories))
                                                                             @foreach($hotCategories as $category)
-                                                                                <li ><a href="{!! url('/products?category='.$category->slug) !!}"><i class="fa fa-list-ul"></i>
+                                                                                <li ><a href="{!! url('products/category/'.$category->slug) !!}"><i class="fa fa-list-ul"></i>
                                                                                         {!! $category->name !!}<span class="badge text-info">{!! $category->products_count !!}</span>
                                                                                     </a></li>
                                                                                 @if($loop->index >= 10)
-                                                                                    <li ><a href="{!! url('/categories') !!}"><i class="fa fa-angle-right"></i>More<i class="fa fa-long-arrow-right pl-1"></i></a></li>
+                                                                                    {{--<li ><a href="{!! url('/categories') !!}"><i class="fa fa-angle-right"></i>More<i class="fa fa-long-arrow-right pl-1"></i></a></li>--}}
                                                                                     @break
                                                                                 @endif
                                                                             @endforeach
@@ -133,7 +133,7 @@
                                                                     <ul class="menu">
                                                                         @if(isset($hotCategories) && count($hotCategories)>10)
                                                                             @for($i = 11; $i < count($hotCategories); ++$i)
-                                                                                <li ><a href="{!! url('/products?category='.$hotCategories[$i]->slug) !!}"><i class="fa fa-list-ul"></i>
+                                                                                <li ><a href="{!! url('products/category/'.$hotCategories[$i]->slug) !!}"><i class="fa fa-list-ul"></i>
                                                                                         {!! $hotCategories[$i]->name !!}<span class="badge text-info">{!! $hotCategories[$i]->products_count !!}</span>
                                                                                     </a></li>
                                                                                 @if($i >= 21)

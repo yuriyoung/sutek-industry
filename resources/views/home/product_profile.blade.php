@@ -46,9 +46,9 @@
                         <li class="nav-item"><a class="nav-link" href="#pill-3" role="tab" data-toggle="tab" title="video"><i class="fa fa-video-camera pr-1"></i> Video</a></li>
                     </ul>
                     {{-- Tab panes --}}
-                    <div class="tab-content space-bottom  object-non-visible animated object-visible fadeInLeft">
+                    <div class="tab-content space-bottom  object-non-visible animated fadeInLeft">
                         <div class="tab-pane active" id="pill-1">
-                            <div class="slick-carousel content-slider-with-controls-autoplay object-non-visible animated object-visible fadeIn">
+                            <div class="slick-carousel content-slider-with-controls-autoplay object-non-visible animated fadeIn">
 
                                 @if(isset($product))
                                     @if(count($product->images) < 1 )
@@ -73,7 +73,7 @@
                         </div> {{--tab-pane 1--}}
 
                         <div class="tab-pane" id="pill-2">
-                            <table class="table text-center table-striped table-colored object-non-visible animated object-visible fadeIn">
+                            <table class="table text-center table-striped table-colored object-non-visible animated fadeIn">
                                 <thead>
                                 <tr>
                                     <th>#</th>
@@ -114,7 +114,7 @@
                         </div>
 
                         <div class="tab-pane embed-responsive embed-responsive-16by9" id="pill-3">
-                            <video class="embed-responsive-item" src="#" poster="/images/poster.png" controls="controls">
+                            <video class="embed-responsive-item object-non-visible animated fadeIn" poster="{!! $product->media_path.$product->images[0] !!}" controls="controls">
                                 This browser does not support the video tag.
                             </video>
                         </div>
@@ -141,7 +141,7 @@
 
                 {{-- sidebar start --}}
                 <aside class="col-lg-4 col-xl-4 ml-xl-auto">
-                    <div class="sidebar object-non-visible animated object-visible fadeInRight">
+                    <div class="sidebar object-non-visible animated fadeInRight">
                         <h3 class="mt-4">Product Info</h3>
                         <div class="separator-2"></div>
                         <ul class="list mb-20">
@@ -149,7 +149,7 @@
                             <li><strong>Date: </strong> <span class="text-right">{!! $product->created_at !!}</span></li>
                             <li><strong>Category: </strong> <span class="text-right">
                                 @if(isset($product->category))
-                                <a href="{!! url('categories/'.$product->category->name) !!}">{!! $product->category->name !!}</a></span>
+                                <a href="{!! url('products/category/'.$product->category->slug) !!}">{!! $product->category->name !!}</a></span>
                                 @endif
                             </li>
                             <li><strong>Place: </strong> <span class="text-right">China DanYang</span></li>
@@ -167,7 +167,7 @@
                                 <dt class="col-sm-4 text-sm-right">{!! ucfirst($name) !!}<div class="separator-3"></div></dt>
                                 <dd class="col-sm-8">
                                     @while(($key = array_search($name, $names, true)) !== FALSE)
-                                        <a href="{!! url('/products?spec='.$product->specs[$key]->slug) !!}" class="badge text-dark">
+                                        <a href="{!! url('/products/spec/'.$product->specs[$key]->slug) !!}" class="badge text-dark">
                                             {!! $product->specs[$key]->value !!}
                                         </a>
                                         @unset($names[$key])

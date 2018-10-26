@@ -47,7 +47,7 @@
                                 @if(isset($hotCategories))
                                     @foreach($hotCategories as $category)
                                         <div class="tag">
-                                            <a href="{!! url('/products?category='.$category->slug) !!}">{!! $category->name !!}</a>
+                                            <a href="{!! url('products/category/'.$category->slug) !!}">{!! $category->name !!}</a>
                                         </div>
                                         @if($loop->index >= 24)
                                             @break;

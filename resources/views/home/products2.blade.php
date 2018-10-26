@@ -39,8 +39,8 @@
     <section class="main-container">
         <div class="container">
             <div class="row">
-                <div class="main col-9">
-                    <form class="" action="{!! url('products') !!}">
+                <div class="main col-lg-9 col-xl-9">
+                    <form class="" action="{!! url('products') !!}" method="get">
                         <div class="form-inline form-group">
                             <input class="form-control col-10" id="searchInput" name="search" type="text" placeholder="Search: title,category,specification" value="{!! isset($search) ? $search : '' !!}">
                             <button type="submit" class="btn btn-default col-auto"><i class="fa fa-search"> Search</i></button>
@@ -87,7 +87,7 @@
                                             <h3 class="title"><a href="{!! $product->url !!}" target="_blank">{!! $product->title !!}</a></h3>
                                             <p class="small mb-10">
                                                 <span><i class="fa fa-calendar-o pr-1"></i> {!! $product->created_at !!}</span>
-                                                <span><i class="fa fa-tag pl-10 pr-1"></i><a href="{!! '/products?category='. ($product->category ? $product->category->slug : '') !!}">{!! $product->category ? $product->category->name : '' !!}</a></span>
+                                                <span><i class="fa fa-tag pl-10 pr-1"></i><a href="{!! '/products/category/'. ($product->category ? $product->category->slug : '') !!}">{!! $product->category ? $product->category->name : '' !!}</a></span>
                                                 <span class="views"><i class="fa fa-eye pl-10 pr-1"></i> {!! $product->views !!} views</span>
                                                 <span class="likes"><a href="#" data-slug="{!! $product->slug !!}"><i class="fa fa-thumbs-o-up pl-10 pr-1"></i></a> {!! $product->likes !!} likes</span>
                                             </p>

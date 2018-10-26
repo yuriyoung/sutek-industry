@@ -33,8 +33,12 @@ Route::group([
     $router->get('about', 'HomeController@about')->name('home.about');
     $router->get('contact', 'HomeController@contact')->name('home.contact');
 
-    $router->post('products/{slug}/like', 'ProductController@like');
-    $router->resource('products', 'ProductController', ['only' => ['index', 'show']]);
+    $router->get('products', 'ProductController@index')->name('products.index');
+    $router->get('products/{title}', 'ProductController@show')->name('products.show');
+    $router->get('products/category/{category}', 'ProductController@categoryIndex')->name('products.category.index');
+    $router->get('products/spec/{spec}', 'ProductController@specIndex')->name('products.spec.index');
+    $router->post('products/{like}/like', 'ProductController@like')->name('products.like');
 
     $router->post('mail/send', 'MailController@send')->name('mail.send');
+    $router->post('mail/subscribe', 'MailController@subscribe')->name('mail.subscribe');
 });
