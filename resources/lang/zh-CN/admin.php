@@ -19,6 +19,7 @@ return [
     'views'                 => '浏览',
     'likes'                 => '点赞',
     'status'                => '状态',
+    'publish'               => '发布',
     'published'             => '已发布',
     'trashed'               => '已删除',
     'draft'                 => '草稿',
@@ -26,6 +27,10 @@ return [
     'select'                => '选择',
     'erase'                 => '彻底删除',
     'create_succeed'        => '创建成功',
+    'guard_name'            => '守卫名',
+    'no'                    => '否',
+    'yes'                   => '是',
+    'last_activity'         => '最近访问',
 
     'config' => [
         'key'   => '配置键',
@@ -37,7 +42,7 @@ return [
         'config'            => '前端显示配置变量',
 
         'product_category'  => "如果要增加分类，请到分类页面增加，<a href=':url' target='_blank'>点击这里 <i class='fa fa-external-link'></i></a> 跳转。<code>添加后需刷新此页</code>。",
-        'product_title'     => '不要出现重复的产品标题，仅字母、数字和下滑线，最多:max个字符，请不要包含特殊符号。',
+        'product_title'     => '产品标题，仅字母、数字和下滑线，最多:max个字符，请不要包含特殊符号。',
         'product_image'     => '要上传多张图片，上传时需要同时选中。支持<code>2M</code>内的<code>jpeg/jpg/png</code>格式的图片，<code>750*460 ~ 1000*800</code>以内(长宽比例应在1.6倍左右)。',
         'product_notice'    => "选择产品规格/属性选项（可多选）。如果要增加新的规格/属性，请到规格/属性页面下增加，<a href=':url' target='_blank'>点击这里 <i class='fa fa-external-link'></i></a> 跳转。<code>添加后需刷新此页</code>。",
         'product_size_notice' => '点击<kbd>新增</kbd>后，手动编辑每列的数据，自动保存，<code>无需点击</code> <kbd>提交</kbd>（除非你已修改<code>"基本"</code>或<code>"规格"</code>）。不推荐增加过多的数据行，推荐15条左右即可。留空自动转换为N/A',
@@ -81,6 +86,7 @@ return [
     'remove'                => '移除',
     'edit'                  => '编辑',
     'continue_editing'      => '继续编辑',
+    'continue_creating'     => '继续创建',
     'view'                  => '查看',
     'detail'                => '详细',
     'browse'                => '浏览',
