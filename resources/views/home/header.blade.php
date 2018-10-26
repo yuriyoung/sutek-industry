@@ -70,7 +70,7 @@
                                     <div id="logo-mobile" class="logo">
                                         <a href="{!! url('/') !!}"><img id="logo-img-mobile" src="/images/logo.png" alt="Sutek Industry"></a>
                                     </div>
-                                    <div class="site-slogan">{!! config('st_company', 'Shanghai Sutek Industry Co.,Ldt') !!}</div>
+                                    <div class="site-slogan">{!! config('st_company_name', 'Sutek-Industries') !!}</div>
                                 </div>
 
                                 {{-- menu navigation --}}
