@@ -319,14 +319,15 @@ class ProductController extends Controller
             $form->select('category_id',trans('admin.category'))->options(Category::selectOptions())->help(__('admin.helper.product_category', ['url' => admin_url('categories')]));
             $form->text('title', trans('admin.title'))->rules('required|min:8|max:64')->help(__('admin.helper.product_title', ['max' => '64']));
             $form->text('slug', trans('admin.slug'))->prepend('<i class="fa fa-internet-explorer fa-fw"></i>' . url('products') . '/')->help(__('admin.helper.slug'));
-            $form->editor('description', trans('admin.description'))->rules('required');
+            $form->ckeditor('description', trans('admin.description'))->rules('required');
             $form->html(__('admin.helper.description.product'));
             $form->multipleImage('images', trans('admin.image'))
                 ->uniqueName()
                 ->removable()
 //                ->rules('required|mimes:jpeg,jpg,png')
                 ->help(__('admin.helper.product_image'));
-            $form->select('status', trans('admin.status'))->options([0 => '草稿', 1 => '发布'])->setWidth(2)->default(1);
+            $form->select('status', trans('admin.status'))->options([0 => trans('admin.draft'), 1 => trans('admin.publish')])
+                ->setWidth(2)->default(1);
             $form->number('views', trans('admin.views'))->default('0');
             $form->number('likes', trans('admin.likes'))->default('0');
 
