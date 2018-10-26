@@ -16,15 +16,17 @@
     </div>
 
     <!-- LAYER NR. 1 -->
-    <div class="tp-caption large_white"
+    <div class="tp-caption medium_white"
          data-x="left"
-         data-y="150"
+         data-y="170"
          data-start="1000"
          data-transform_idle="o:1;"
          data-transform_in="y:[100%];sX:1;sY:1;o:0;s:900;e:Power4.easeInOut;"
          data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;"
          data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
-         data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;">Next Generation Template
+         data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;">
+        <span class="icon default-bg circle small hidden-xs"><i class="fa fa-cube"></i></span>
+        Protection elegant packaging offers
     </div>
 
     <!-- LAYER NR. 2 -->
@@ -37,7 +39,9 @@
          data-transform_in="y:[100%];sX:1;sY:1;o:0;s:900;e:Power4.easeInOut;"
          data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;"
          data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
-         data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"><span class="icon default-bg circle small hidden-xs"><i class="fa fa-laptop"></i></span> 100% Responsive
+         data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;">
+        <span class="icon default-bg circle small hidden-xs"><i class="fa fa-desktop"></i></span>
+        Free design as per customized brand or logo
     </div>
 
     <!-- LAYER NR. 3 -->
@@ -50,7 +54,9 @@
          data-transform_in="y:[100%];sX:1;sY:1;o:0;s:900;e:Power4.easeInOut;"
          data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;"
          data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
-         data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"><span class="icon default-bg circle small hidden-xs"><i class="fa fa-check"></i></span> Bootstrap Based
+         data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;">
+        <span class="icon default-bg circle small hidden-xs"><i class="fa fa-shield"></i></span>
+        Used by better material ABS for plastic
     </div>
 
     <!-- LAYER NR. 4 -->
@@ -63,7 +69,9 @@
          data-transform_in="y:[100%];sX:1;sY:1;o:0;s:900;e:Power4.easeInOut;"
          data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;"
          data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
-         data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"><span class="icon default-bg circle small hidden-xs"><i class="fa fa-gift"></i></span> Packed Full of Features
+         data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;">
+        <span class="icon default-bg circle small hidden-xs"><i class="fa fa-ship"></i></span>
+        Based on Exportation Standard
     </div>
 
     <!-- LAYER NR. 5 -->
@@ -76,7 +84,9 @@
          data-transform_in="y:[100%];sX:1;sY:1;o:0;s:900;e:Power4.easeInOut;"
          data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;"
          data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
-         data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"><span class="icon default-bg circle small hidden-xs"><i class="fa fa-hourglass-half"></i></span> Very Elegant Design
+         data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;">
+        <span class="icon default-bg circle small hidden-xs"><i class="fa fa-compass"></i></span>
+        Cobalt drill bits inside properly for aluminum
     </div>
 
     <!-- LAYER NR. 6 -->
@@ -89,7 +99,8 @@
          data-transform_in="y:[100%];sX:1;sY:1;o:0;s:900;e:Power4.easeInOut;"
          data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;"
          data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
-         data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"><a href="#" class="btn btn-default-transparent btn-lg btn-animated">Contact us <i class="fa fa-envelope"></i></a>
+         data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;">
+        <a href="{!! url('contact') !!}" class="btn btn-default-transparent btn-lg btn-animated">Contact us <i class="fa fa-envelope"></i></a>
     </div>
 
     <!-- LAYER NR. 7 -->

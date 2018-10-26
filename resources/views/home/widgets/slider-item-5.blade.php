@@ -92,7 +92,8 @@
          data-transform_in="y:[-100%];sX:1;sY:1;o:0;s:1100;e:Power4.easeInOut;"
          data-transform_out="y:0;s:700;e:Power2.easeInOut;"
          data-mask_in="x:0;y:[-100%];s:inherit;e:inherit;"
-         data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"><span class="logo-font">The <span class="text-default">Scotic</span></span>
+         data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;">
+        <span class="logo-font">The <span class="text-default">Scotic</span></span>
     </div>
     <div class="tp-caption large_white"
          data-x="center"
@@ -106,7 +107,7 @@
          data-transform_in="y:[-100%];sX:1;sY:1;o:0;s:1100;e:Power4.easeInOut;"
          data-transform_out="x:0;y:0;o:0;s:700;e:Power2.easeInOut;"><span><img src="/images/brand-scotic.png"></span>
     </div>
-    <div class="tp-caption large_white"
+    <div class="tp-caption medium_white"
          data-x="center"
          data-y="250"
          data-start="1500"
@@ -118,7 +119,10 @@
          data-transform_in="y:[-100%];sX:1;sY:1;o:0;s:1100;e:Power4.easeInOut;"
          data-transform_out="y:0;s:500;e:Power2.easeInOut;"
          data-mask_in="x:0;y:[-100%];s:inherit;e:inherit;"
-         data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;">Carbide Drill & Endmill <br/> HSS Drill & Taper & Cutter <br/> Metal, Stone, Wood working
+         data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;">
+        Hammer Drill Bit & Concrete / Masonry Drill Bit <br/>
+        HSS & Flat Wood Drill Bit, Wood Auger Bit & Brad Wood Bit & Wood Forstner Bit <br/>
+        Diamond Saw blade & Hole Saw & Screwdriver Bit
     </div>
 
     <!-- LAYER NR. 5 -->

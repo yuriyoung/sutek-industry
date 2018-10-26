@@ -17,7 +17,7 @@
     <div class="banner clearfix">
         {{-- slideshow revolution start --}}
         <div class="slideshow">
-            <div class="slider-revolution-5-container object-non-visible" data-animation-effect="fadeInLeft" data-effect-delay="200" style="background:#09afdf;">
+            <div class="slider-revolution-5-container" style="background:#09afdf;">
                 <div id="slider-banner-fullwidth-big-height" class="slider-banner-fullwidth-big-height rev_slider" data-version="5.0">
                     <ul class="slides">
                         {{-- slider 1 --}}
@@ -39,155 +39,85 @@
 
     <div id="page-start"></div>
 
-    <section class="light-gray-bg pv-40 border-clear">
+    <section class="light-gray-bg pv-40 clearfix">
         <div class="container">
-            <h1 class="page-title text-center">Our <strong>Drill bits</strong></h1>
-            <div class="separator"></div>
-            <div class="row">
-
-                <div class="col-md-4">
-                    <div class="image-box style-2 mb-20 object-non-visible" data-animation-effect="fadeInDown" data-effect-delay="400">
-                        <div class="overlay-container overlay-visible">
-                            <img src="/images/sutek-image-3.jpg" alt="" style="height:200px;">
-                            <a href="{!! url('services') !!}" class="overlay-link"><i class="fa fa-link"></i></a>
-                            <div class="overlay-bottom">
-                                <div class="text">
-                                    <p class="lead margin-clear text-left mobile-visible">Carbonsteel Material</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="body padding-horizontal-clear object-non-visible delay-1s" data-animation-effect="fadeInUp">
-                            <p>It is often used in power-saw blades and drill bits.
-                                It is superior to the older high-carbon steel tools used extensively through
-                                the 1940s in that it can withstand higher temperatures without losing its temper
-                                (hardness) ...</p>
-                            <a class="link-dark" href="{!! url('services') !!}">Read More</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="image-box style-2 mb-20 object-non-visible" data-animation-effect="fadeInDown" data-effect-delay="400">
-                        <div class="overlay-container overlay-visible">
-                            <img src="/images/sutek-image-4.jpg" alt="" style="height:200px;">
-                            <a href="{!! url('services') !!}" class="overlay-link"><i class="fa fa-link"></i></a>
-                            <div class="overlay-bottom">
-                                <div class="text">
-                                    <p class="lead margin-clear text-left mobile-visible">Factory Pipeline</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="body padding-horizontal-clear object-non-visible delay-1s" data-animation-effect="fadeInUp">
-                            <p>200 machines works as shift system.
-                                Independent Heat treatment centers
-                                annual value of production from USD15,800,000 since 2012 to nowadays USD24,450,000.
-                                Made from tungsten steel and being hot-treated ...
-                            </p>
-                            <a class="link-dark" href="{!! url('services') !!}">Read More</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="image-box style-2 mb-20 object-non-visible" data-animation-effect="fadeInDown" data-effect-delay="400">
-                        <div class="overlay-container overlay-visible">
-                            <img src="/images/sutek-image-5.jpg" alt="" style="height:200px;">
-                            <a href="{!! url('services') !!}" class="overlay-link"><i class="fa fa-link"></i></a>
-                            <div class="overlay-bottom">
-                                <div class="text">
-                                    <p class="lead margin-clear text-left mobile-visible">Product Packing</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="body padding-horizontal-clear object-non-visible delay-1s" data-animation-effect="fadeInUp">
-                            <p>GB 40CR alloy Steel is a high quality Quenched and Tempered Alloy Structural steel,
-                                It belong to the high quality low carbon, Low alloy chromium, molybdenum, nickel case
-                                hardening steel. Oil Quenched & Tempered Hardness ... </p>
-                            <a class="link-dark" href="{!! url('services') !!}">Read More</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    <section class="light-gray-bg pv-20 border-clear">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-
-                    <h2 class="text-center mt-4">We Provide Multiple Standards & Specifications</h2>
+            <div class="row justify-content-lg-center">
+                <div class="col-lg-8">
+                    <h2 class="text-center">Our <strong>Features</strong></h2>
                     <div class="separator"></div>
-                    <div class="row mt-20">
-                        <div class="col-lg-6">
-                            <div class="feature-box-2 right object-non-visible" data-animation-effect="fadeInDown" data-effect-delay="400">
-                                <span class="icon">
-                                    <img src="/images/icons/standard/ISO.png" class="icon">
-                                </span>
-                                <div class="body">
-                                    <h4 class="title">International Standardization Organization</h4>
-                                    <p>Multiple standards and specifications see our products.</p>
-                                    <br/>
-                                    <div class="separator-3"></div>
+                    <p class="large text-center"></p>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-lg-4 col-sm-12">
+                    <div class="image-box mb-20 bordered shadow-2 object-non-visible" data-animation-effect="fadeInUp" data-effect-delay="400">
+                        <div class="overlay-container overlay-visible">
+                            <img src="/images/Drill-bits-for-Stone.jpg" class="img-responsive" alt="Drill bits for Stone&Metal&Wood">
+                            <a href="{!! url('services') !!}" class="overlay-link"><i class="fa fa-link"></i></a>
+                            <div class="overlay-to-top">
+                                <div class="text">
+                                    <p class="margin-clear text-left mobile-visible">Drill bits for Stone/Metal/Wood</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="feature-box-2 object-non-visible" data-animation-effect="fadeInDown" data-effect-delay="400">
-                                <span class="icon"><img src="/images/icons/flute/7cutter.png" class="icon"></span>
-                                <div class="body">
-                                    <h4 class="title">Number of flutes cutters</h4>
-                                    <p>2/3/4/5/6/7/8 Flute cutter ballnose, 2/3/4/5/6/7/8 Flute square end.</p>
-                                    <br/>
-                                    <div class="separator-2"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="feature-box-2 right object-non-visible" data-animation-effect="fadeInDown" data-effect-delay="400">
-                                <span class="icon"><img src="/images/icons/angle/118de.png" class="icon"></span>
-                                <div class="body">
-                                    <h4 class="title">Responsive Design</h4>
-                                    <p>30/45/55/118/135° Point Geometry.</p>
-                                    <br/>
-                                    <div class="separator-3"></div>
-                                </div>
-                            </div>
-                            <div class="feature-box-2 right object-non-visible" data-animation-effect="fadeInDown" data-effect-delay="400">
-                                <span class="icon"><img src="/images/icons/angle/SR.png" class="icon"></span>
-                                <div class="body">
-                                    <h4 class="title">Labore et dolore magna aliqua</h4>
-                                    <p>Our design is with responsive in mind. Our themes are compatible with various
-                                        desktop, tablet, and mobile devices.</p>
-                                    <div class="separator-3"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="feature-box-2 object-non-visible" data-animation-effect="fadeInDown" data-effect-delay="400">
-                                <span class="icon"><img src="/images/icons/surface/Amber.png" class="icon"></span>
-                                <div class="body">
-                                    <h4 class="title">Amber Surfaces</h4>
-                                    <p>Perfect plating Amber surface treatment for enhancing hardness and wear
-                                        resistance, the hardness increased by about 10 times at most.</p>
-                                    <div class="separator-2"></div>
-                                </div>
-                            </div>
-                            <div class="feature-box-2 object-non-visible" data-animation-effect="fadeInDown" data-effect-delay="400">
-                                <span class="icon"><img src="/images/icons/surface/TiALN.png" class="icon"></span>
-                                <div class="body">
-                                    <h4 class="title">TiALN Surfaces</h4>
-                                    <p>Perfect plating TiALN surface treatment for enhancing hardness and wear
-                                        resistance, the hardness increased by about 15 times at most.</p>
-                                    <div class="separator-2"></div>
-                                </div>
-                            </div>
+                        <h4 class="mt-20 text-center">Drill bits for Stone/Metal/Wood</h4>
+                        <div class="separator clearfix"></div>
+                        <div class="body padding-horizontal-clear object-non-visible " data-animation-effect="fadeInUpSmall">
+                            <p>
+                                Hammer Drill Bits; Concrete Core Drill Bits; Masonry Drill Bits; Glass & Hard Tile Drill Bits
+                                SDS-plus Hammer Drill Bits with Professional ...
+                            </p>
+                            <a class="btn btn-default btn-sm margin-clear btn-animated" href="{!! url('services') !!}">Read More <i class="pl-1 fa fa-angle-double-right"></i></a>
                         </div>
                     </div>
-
                 </div>
+
+                <div class="col-lg-4 col-sm-12">
+                    <div class="image-box style-2 mb-20 bordered shadow-2 object-non-visible " data-animation-effect="fadeInUp" data-effect-delay="400">
+                        <div class="overlay-container overlay-visible">
+                            <img src="/images/sutek-image-12.jpg"class="img-responsive"  alt="Sutek Industries Manufacture-Packaging-Delivery">
+                            <a href="{!! url('services') !!}" class="overlay-link"><i class="fa fa-link"></i></a>
+                            <div class="overlay-to-top">
+                                <div class="text">
+                                    <p class="margin-clear text-left mobile-visible">Manufacture & Packaging & Delivery</p>
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="mt-20 text-center">Manufacture & Packaging & Delivery</h4>
+                        <div class="separator clearfix"></div>
+                        <div class="body padding-horizontal-clear object-non-visible " data-animation-effect="fadeInUpSmall">
+                            <p>
+                                As a export-oriented drill bit enterprise, we are always firmly to control every packing details for good delivery ...
+                            </p>
+                            <a class="btn btn-default btn-sm margin-clear btn-animated" href="{!! url('services') !!}">Read More <i class="pl-1 fa fa-angle-double-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-sm-12">
+                    <div class="image-box style-2 mb-20 bordered shadow-2 object-non-visible " data-animation-effect="fadeInUp" data-effect-delay="400">
+                        <div class="overlay-container overlay-visible">
+                            <img src="/images/Drill-bits-for-Wood.jpg" class="img-responsive" alt="Drill bits for Wood">
+                            <a href="{!! url('services') !!}" class="overlay-link"><i class="fa fa-link"></i></a>
+                            <div class="overlay-to-top">
+                                <div class="text">
+                                    <p class="margin-clear text-left mobile-visible">Quality inspection & Technical indicator</p>
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="mt-20 text-center">Quality inspection & Technical indicator</h4>
+                        <div class="separator clearfix"></div>
+                        <div class="body padding-horizontal-clear object-non-visible " data-animation-effect="fadeInUpSmall">
+                            <p>
+                                Manufacture from Flat wood drill bit to Brad Point Wood Drill Bits;
+                                Wood Auger Bits; Extension for Spade Drills; Wood Forstener Bit ...
+                            </p>
+                            <a class="btn btn-default btn-sm margin-clear btn-animated" href="{!! url('services') !!}">Read More <i class="pl-1 fa fa-angle-double-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -196,9 +126,9 @@
         <div class="container">
             <div class="row">
                 <div class="main col-lg-12">
-                    <h2 class="text-center mt-4">Latest Drill bits</h2>
+                    <h2 class="text-center mt-4">Latest <strong>Drill bits</strong></h2>
                     <div class="separator"></div>
-                    <div class="slick-carousel carousel-autoplay object-non-visible delay-800ms" data-animation-effect="fadeInUp">
+                    <div class="slick-carousel carousel-autoplay object-non-visible " data-animation-effect="fadeInUp">
                         @if(isset($latestProducts))
                             @foreach($latestProducts as $product)
                                 <div class="overlay-container">
@@ -211,7 +141,7 @@
                                     </div>
                                     <div class="overlay-bottom">
                                         <div class="links">
-                                            <a href="{!! $product->url !!}" class="btn-sm-link" tabindex="-1">View
+                                            <a href="{!! $product->url !!}" class="btn btn-gray-transparent btn-animated btn-sm" tabindex="-1">View
                                                 Details<i class="pl-1 fa fa-long-arrow-right"></i></a>
                                         </div>
                                     </div>
@@ -229,7 +159,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="call-to-action text-center object-non-visible delay-800ms" data-animation-effect="fadeInRight">
+                    <div class="call-to-action text-center object-non-visible " data-animation-effect="fadeInRight">
                         <div class="row">
                             <div class="col-md-8">
                                 <h2 class="title">our product catalogue pdf document</h2>
@@ -249,6 +179,85 @@
         </div>
     </section>
 
+    <section class="light-gray-bg pv-20 border-clear">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <h2 class="text-center mt-4">We Provide Multiple <strong>Standards</strong> & <strong>Specifications</strong></h2>
+                    <div class="separator"></div>
+                    <div class="row mt-20">
+                        <div class="col-lg-6">
+                            <div class="feature-box-2 right object-non-visible " data-animation-effect="fadeInDown" data-effect-delay="400">
+                                <span class="icon">
+                                    <img src="/images/icons/standard/ISO.png" class="icon">
+                                </span>
+                                <div class="body">
+                                    <h4 class="title">International Standardization Organization</h4>
+                                    <p>Multiple standards and specifications see our products.</p>
+                                    <br/>
+                                    <div class="separator-3"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="feature-box-2 object-non-visible " data-animation-effect="fadeInDown" data-effect-delay="400">
+                                <span class="icon"><img src="/images/icons/flute/7cutter.png" class="icon"></span>
+                                <div class="body">
+                                    <h4 class="title">Number of flutes cutters</h4>
+                                    <p>2/3/4/5/6/7/8 Flute cutter ballnose, 2/3/4/5/6/7/8 Flute square end.</p>
+                                    <br/>
+                                    <div class="separator-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="feature-box-2 right object-non-visible " data-animation-effect="fadeInDown" data-effect-delay="400">
+                                <span class="icon"><img src="/images/icons/angle/118de.png" class="icon"></span>
+                                <div class="body">
+                                    <h4 class="title">Responsive Design</h4>
+                                    <p>30/45/55/118/135° Point Geometry.</p>
+                                    <br/>
+                                    <div class="separator-3"></div>
+                                </div>
+                            </div>
+                            <div class="feature-box-2 right object-non-visible " data-animation-effect="fadeInDown" data-effect-delay="400">
+                                <span class="icon"><img src="/images/icons/angle/SR.png" class="icon"></span>
+                                <div class="body">
+                                    <h4 class="title">Labore et dolore magna aliqua</h4>
+                                    <p>Our design is with responsive in mind. Our themes are compatible with various
+                                        desktop, tablet, and mobile devices.</p>
+                                    <div class="separator-3"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="feature-box-2 object-non-visible " data-animation-effect="fadeInDown" data-effect-delay="400">
+                                <span class="icon"><img src="/images/icons/surface/Amber.png" class="icon"></span>
+                                <div class="body">
+                                    <h4 class="title">Amber Surfaces</h4>
+                                    <p>Perfect plating Amber surface treatment for enhancing hardness and wear
+                                        resistance, the hardness increased by about 10 times at most.</p>
+                                    <div class="separator-2"></div>
+                                </div>
+                            </div>
+                            <div class="feature-box-2 object-non-visible " data-animation-effect="fadeInDown" data-effect-delay="400">
+                                <span class="icon"><img src="/images/icons/surface/TiALN.png" class="icon"></span>
+                                <div class="body">
+                                    <h4 class="title">TiALN Surfaces</h4>
+                                    <p>Perfect plating TiALN surface treatment for enhancing hardness and wear
+                                        resistance, the hardness increased by about 15 times at most.</p>
+                                    <div class="separator-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="section light-gray-bg pv-20 border-clear">
         <div class="container">
             <div class="row">
@@ -257,14 +266,14 @@
                     <div class="separator"></div>
                     <div class="row splitter">
                         <div class="col-md-4 col-lg-4 left">
-                            <ul class="list-icons object-non-visible" data-animation-effect="fadeInLeft" data-effect-delay="400">
+                            <ul class="list-icons object-non-visible " data-animation-effect="fadeInLeft" data-effect-delay="400">
                                 <li class="icon"><i class="fa fa-eye"></i></li>
                                 <li><h3>Visible Test</h3></li>
                                 <li><p>Visual by eye or loupe, marking must be clear readable.</p></li>
                                 <li><p>Control colour of surface.</p></li>
                                 <li><p>Control if surface is free of scratches and burrs.</p></li>
                             </ul>
-                            <ul class="list-icons object-non-visible" data-animation-effect="fadeInLeft" data-effect-delay="400">
+                            <ul class="list-icons object-non-visible " data-animation-effect="fadeInLeft" data-effect-delay="400">
                                 <li class="icon"><i class="fa fa-diamond"></i></li>
                                 <li><h3 class="nocaps">Hardness Test</h3></li>
                                 <li><p>Contrary to popular a belief, Lorem Ipsum is not simply It has literature
@@ -280,14 +289,14 @@
                         </div>
 
                         <div class="col-md-4 col-lg-4 right">
-                            <ul class="list-icons object-non-visible" data-animation-effect="fadeInRight" data-effect-delay="400">
+                            <ul class="list-icons object-non-visible " data-animation-effect="fadeInRight" data-effect-delay="400">
                                 <li class="icon"><i class="fa fa-cube"></i></li>
                                 <li><h3 class="nocaps">Specification Control</h3></li>
                                 <li><p>Measure the diameter at the furthest part of the major cutting edge.</p></li>
                                 <li><p>Measure the thickness of the core of the drills.</p></li>
                                 <li><p>measure the diameter of the reduced shaft.</p></li>
                             </ul>
-                            <ul class="list-icons object-non-visible" data-animation-effect="fadeInRight" data-effect-delay="400">
+                            <ul class="list-icons object-non-visible " data-animation-effect="fadeInRight" data-effect-delay="400">
                                 <li class="icon"><i class="fa fa-flask"></i></li>
                                 <li><h3>Chemical Element Test</h3></li>
                                 <li><p>Measure the chemical elements on the flute or on the shank.</p></li>

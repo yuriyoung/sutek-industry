@@ -16,11 +16,14 @@
          data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;">
         <h2 class="title">Cutting Professional in <strong>Sutek</strong></h2>
         <div class="separator-2 clearfix"></div>
-        <p>We are constantly advancing our services for you because we want to find the best
-            possible solution to your problems. To put it differently, we want to be at the top of our
-            class. That’s the only way you can be sure you’ll get products engineered the right way.
-            We put our heads together with you in your projects for mutual maximum benefits.</p>
-        <div class="text-right"><a class="btn btn-small btn-gray-transparent margin-clear" href="{!! url('/products') !!}">Read More</a></div>
+        <ul class="list-icons">
+            <li><i class="fa fa-check-circle-o"></i>15 years manufacturing experiences & 10 years exportation experiences.</li>
+            <li><i class="fa fa-check-circle-o"></i>Strong production capacity levels.</li>
+            <li><i class="fa fa-check-circle-o"></i>Being Qualifed(BSCI) Coperation for international business.</li>
+            <li><i class="fa fa-check-circle-o"></i>Being professional tools concentration.</li>
+            <li><i class="fa fa-check-circle-o"></i>Bing 10 years experiences service of Home Hardware Market clients, solution sales.</li>
+        </ul>
+        <div class="text-right"><a class="btn btn-small btn-gray-transparent margin-clear" href="{!! url('/services') !!}">Read More</a></div>
     </div>
 
     {{-- LAYER NR. 2--}}

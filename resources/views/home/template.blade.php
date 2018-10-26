@@ -5,16 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <title>@yield('title') - {!! config('st_company_name', 'Sutek-Indsutry') !!} - Enterprise with exportable drill bits</title>
+    <meta name="description" content="Products Range:Concrete Core Drill Bits;Masonry Drill Bits; Glass & Hard Tile Drill Bits SDS-plus Hammer Drill Bits with Professional qualities under DIN/ANSI standard SDS-plus or max are available,to drill various concrete,bricks,masonry materials,etc.">
+    <meta name="keywords" content="Scotic,Metal Stone Wood,Drill bit,Drill bits,Drilling,Cutting,Tailor made,Packing,Exportable,Export,Standards,DIN340,DIN345,DIN338,DIN1897,135 Point,118 Point,M42,M35,HSS Twist,Milled,ANSI,Silver,Double Spiral Parabolic Flute,Straight Spline Shank">
+    <meta name="author" content="{!! config('st_company_name') !!},Sutek-Industry,Scotic,York Young,Yuri Young">
+    <meta name="copyright" content="©2018 sutek-industry.com,{!! config('st_company_name') !!}">
     <noscript>
         <META http-equiv="refresh" content="0;URL=js-error.html">
     </noscript>
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!-- Favicon -->
     <link rel="shortcut icon" href="/img/favicon.ico">
-
-    <title>@yield('title') - {!! config('st_company_name', 'Sutek-Indsutry') !!}</title>
 
     <script src="{!! asset('/vendor/pace/pace.min.js') !!}"></script>
 
@@ -50,10 +51,6 @@
 
 <body class="front-page">
 
-    {{--<div class="preloader">--}}
-        {{--<div class="status"></div>--}}
-    {{--</div>--}}
-
     {{-- scrollToTop --}}
     <div class="scrollToTop circle"><i class="fa fa-angle-up"></i></div>
 
@@ -69,7 +66,6 @@
     {{-- jquery/bootstrap --}}
     <script src="{!! asset('/js/jquery.min.js') !!}"></script>
     <script src="{!! asset('/js/popper.min.js') !!}"></script>
-    <script src="{!! asset('/js/jquery.rotate.min.js') !!}"></script>
     <script src="{!! asset('/vendor/bootstrap/js/bootstrap.min.js') !!}"></script>
     <script src="{!! asset('/vendor/slick/slick.min.js') !!}"></script>
 

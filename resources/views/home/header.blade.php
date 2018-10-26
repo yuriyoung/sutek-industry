@@ -57,7 +57,7 @@
                     <div class="header-first clearfix">
                         <div id="logo" class="logo"><a href="{!! url('/') !!}"><img id="logo_img" src="/images/logo.png" alt="Sutek Industry"></a></div>
                     </div>
-                    <div class="site-slogan">{!! config('st_company', 'Shanghai Sutek Industry Co.,Ldt') !!}</div>
+                    <div class="site-slogan">{!! config('st_company_name', 'Sutek-Industries') !!}</div>
                 </div>
 
                 {{-- 菜单导航栏 --}}
