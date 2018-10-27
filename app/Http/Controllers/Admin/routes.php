@@ -24,6 +24,9 @@ Route::group([
     $router->resource('users', 'UserController');
     $router->resource('roles', 'RoleController');
     $router->resource('permissions', 'PermissionController');
+    $router->resource('news', 'NewsController');
+    $router->post('news/upload', 'NewsController@uploadImage')->name('news.upload');
 
-    //$router->get('recover', 'ProductController@recoverImages');
+    $router->group(['prefix' => 'tracker'], function (Router $router){
+    });
 });

@@ -27,7 +27,6 @@ Route::group([
 ], function (Router $router) {
     $router->get('/', 'HomeController@index');
     $router->get('services', 'HomeController@services')->name('home.services');
-    $router->get('news', 'HomeController@news')->name('home.news');
     $router->get('downloads', 'HomeController@downloads')->name('home.downloads');
     $router->get('download', 'HomeController@doDownload')->name('home.download');
     $router->get('about', 'HomeController@about')->name('home.about');
@@ -38,6 +37,9 @@ Route::group([
     $router->get('products/category/{category}', 'ProductController@categoryIndex')->name('products.category.index');
     $router->get('products/spec/{spec}', 'ProductController@specIndex')->name('products.spec.index');
     $router->post('products/{like}/like', 'ProductController@like')->name('products.like');
+
+    $router->get('news', 'NewsController@index')->name('home.news.index');
+    $router->get('news/{title}', 'NewsController@show')->name('home.news.show');
 
     $router->post('mail/send', 'MailController@send')->name('mail.send');
     $router->post('mail/subscribe', 'MailController@subscribe')->name('mail.subscribe');

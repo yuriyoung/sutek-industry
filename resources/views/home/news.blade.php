@@ -19,133 +19,32 @@
                     <h1 class="page-title">Recent News</h1>
                     <div class="separator-2"></div>
 
-                    {{-- article post 1--}}
-                    <article class="article-post">
-                        <div class="row grid-space-10">
-                            <div class="col-lg-6">
-                                <div id="carousel-article-post" class="carousel slide" data-ride="carousel">
-                                    <!-- Indicators -->
-                                    <ol class="carousel-indicators bottom margin-clear">
-                                        <li data-target="#carousel-article-post" data-slide-to="0" class="active"></li>
-                                        <li data-target="#carousel-article-post" data-slide-to="1"></li>
-                                        <li data-target="#carousel-article-post" data-slide-to="2"></li>
-                                    </ol>
-
-                                    <!-- Wrapper for slides -->
-                                    <div class="carousel-inner" role="listbox">
-                                        <div class="carousel-item active">
-                                            <div class="image-box shadow bordered text-center">
-                                                <div class="overlay-container">
-                                                    <img src="http://placehold.it/750x460/09f/fff" alt="">
-                                                    <a href="http://placehold.it/750x460/09f/fff" class="overlay-link"><i class="fa fa-link"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <div class="image-box shadow bordered text-cente">
-                                                <div class="overlay-container">
-                                                    <img src="http://placehold.it/750x460/8e3/fff" alt="">
-                                                    <a href="http://placehold.it/750x460/8e3/fff" class="overlay-link"><i class="fa fa-link"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <div class="image-box shadow bordered text-center">
-                                                <div class="overlay-container">
-                                                    <img src="http://placehold.it/750x460/bb4/fff" alt="">
-                                                    <a href="http://placehold.it/750x460/bb4/fff" class="overlay-link"><i class="fa fa-link"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>{{-- /.carousel-item --}}
-
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
+                    @if(isset($news))
+                        @foreach($news as $post)
+                            <article class="article-post">
                                 <header>
-                                    <h2><a href="#">New article with slider</a></h2>
+                                    <h2><a href="{!! url('news/'.$post->slug) !!}">{!! $post->title !!}</a></h2>
                                     <div class="post-info">
-                                        <span class="post-date">
-                                          <i class="fa fa-calendar-o pr-1"></i>
-                                          <span class="day">12</span>
-                                          <span class="month">May 2017</span>
-                                        </span>
-                                        <span class="submitted"><i class="fa fa-user pr-1 pl-1"></i> by <a href="#">John Doe</a></span>
-                                        <span class="comments"><i class="fa fa-comments-o pl-1 pr-1"></i> <a href="#">22 comments</a></span>
-                                    </div>
-                                </header>
-                                <div class="article-post-content">
-                                    <p>Mauris dolor sapien, malesuada at interdum ut, hendrerit eget lorem. Nunc interdum mi neque, et  sollicitudin purus fermentum ut. Suspendisse faucibus nibh odio, a vehicula eros pharetra in. Maecenas  ullamcorper commodo rutrum...</p>
-                                </div>
-                            </div>
-                        </div>{{-- /.row --}}
-                        <footer class="clearfix">
-                            <div class="tags pull-left"><i class="fa fa-tags pr-1"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a></div>
-                            <div class="link pull-right"><i class="fa fa-link pr-1"></i><a href="#">Read More</a></div>
-                        </footer>
-                    </article>
-
-                    {{-- article post 2--}}
-                    <article class="article-post">
-                        <header>
-                            <h2><a href="#">Lorem upsoum dolor is</a></h2>
-                            <div class="post-info">
                                 <span class="post-date">
                                     <i class="fa fa-calendar-o pr-1"></i>
-                                    <span class="day">10</span>
-                                    <span class="month">May 2017</span>
+                                    <span class="date">{!! $post->created_at !!}</span>
                                 </span>
-                                <span class="submitted"><i class="fa fa-user pr-1 pl-1"></i> by <a href="#">John Doe</a></span>
-                                <span class="comments"><i class="fa fa-comments-o pl-1 pr-1"></i> <a href="#">22 comments</a></span>
-                            </div>
-                        </header>
-                        <div class="article-post-content">
-                            <p>Mauris dolor sapien, malesuada at interdum ut, hendrerit eget lorem. Nunc interdum mi neque, et  sollicitudin purus fermentum ut. Suspendisse faucibus nibh odio, a vehicula eros pharetra in.</p>
-                        </div>
-                        <footer class="clearfix">
-                            <div class="tags pull-left"><i class="fa fa-tags pr-1"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a></div>
-                            <div class="link pull-right"><i class="fa fa-link pr-1"></i><a href="#">Read More</a></div>
-                        </footer>
-                    </article>
-
-                    {{-- article post 3--}}
-                    <article class="article-post">
-                        <div class="row grid-space-10">
-                            <div class="col-lg-6">
-                                <div class="overlay-container">
-                                    <img src="http://placehold.it/750x460/ee4/fff" alt="">
-                                    <a class="overlay-link" href="#"><i class="fa fa-link"></i></a>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <header>
-                                    <h2><a href="#">Cute Robot</a></h2>
-                                    <div class="post-info">
-                                        <span class="post-date">
-                                            <i class="fa fa-calendar-o pr-1"></i>
-                                            <span class="day">09</span>
-                                            <span class="month">May 2017</span>
-                                        </span>
-                                        <span class="submitted"><i class="fa fa-user pr-1 pl-1"></i> by <a href="#">John Doe</a></span>
-                                        <span class="comments"><i class="fa fa-comments-o pl-1 pr-1"></i> <a href="#">22 comments</a></span>
+                                        <span class="submitted"><i class="fa fa-user pr-1 pl-1"></i> by {!! $post->author->name !!}</span>
+                                        <span class="comments"><i class="fa fa-comments-o pl-1 pr-1"></i> <a href="#">0 comments</a></span>
                                     </div>
                                 </header>
                                 <div class="article-post-content">
-                                    <p>Mauris dolor sapien, malesuada at interdum ut, hendrerit eget lorem. Nunc interdum mi neque, et  sollicitudin purus fermentum ut. Suspendisse faucibus nibh odio, a vehicula eros pharetra in. Maecenas  ullamcorper commodo rutrum. In iaculis lectus vel augue eleifend dignissim.</p>
+                                    <p>{!! $post->summary !!}</p>
                                 </div>
-                            </div>
-                        </div>{{-- /.row --}}
-                        <footer class="clearfix">
-                            <div class="tags pull-left"><i class="fa fa-tags pr-1"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a></div>
-                            <div class="link pull-right"><i class="fa fa-link pr-1"></i><a href="#">Read More</a></div>
-                        </footer>
-                    </article>
-
-                    {{-- article post .... --}}
+                                <footer class="clearfix">
+                                    <div class="tags pull-left"><i class="fa fa-tags pr-1"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a></div>
+                                    <div class="link pull-right"><i class="fa fa-link pr-1"></i><a href="{!! url('news/'.$post->slug) !!}">Read More</a></div>
+                                </footer>
+                            </article>
+                        @endforeach
+                    @endif
                 </div>
+
                 <aside class="col-lg-4 col-xl-3 order-lg-1">
                     <div class="sidebar">
                         <div class="block clearfix">

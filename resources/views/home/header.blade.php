@@ -82,7 +82,7 @@
                                     <ul class="navbar-nav ml-xl-auto">
                                         <li class="nav-item {!! isset($active)?$active['home']:'' !!}"><a href="{!! url('/') !!}" class="nav-link" aria-haspopup="false" aria-expanded="false">Home</a></li>
                                         <li class="nav-item {!! isset($active)?$active['services']:'' !!}"><a href="{!! url('services') !!}" class="nav-link" aria-haspopup="false" aria-expanded="false">Services</a></li>
-                                        {{--<li class="nav-item {!! $active['news'] !!}"><a href="{!! url('news') !!}" class="nav-link" aria-haspopup="false" aria-expanded="false">News</a></li>--}}
+                                        <li class="nav-item {!! isset($active)?$active['news']:'' !!}"><a href="{!! url('news') !!}" class="nav-link" aria-haspopup="false" aria-expanded="false">News</a></li>
                                         {{-- drop menu--}}
                                         {{--<li class="nav-item dropdown">--}}
                                             {{--<a href="#" class="nav-link dropdown-toggle" id="third-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>--}}
