@@ -30,7 +30,7 @@ class DashboardController extends Controller
             $content->row(Dashboard::title());
 
             $content->row(function (Row $row){
-                $row->column(3,new InfoBox('Users(用户)', 'users', 'green', admin_url('auth/users'), Admin::user()->count()));
+                $row->column(3,new InfoBox('Users(用户)', 'users', 'green', admin_url('users'), User::count()));
                 $row->column(3,new InfoBox('Products(产品)', 'cubes', 'aqua', admin_url('products'), Product::count()));
                 $row->column(3,new InfoBox('Categories(分类)', 'dedent', 'yellow', admin_url('categories'), Category::count()));
                 $row->column(3,new InfoBox('Specifications(规格)', 'file-text', 'red', admin_url('specs'), Spec::count()));
