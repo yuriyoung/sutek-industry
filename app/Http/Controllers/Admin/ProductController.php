@@ -274,9 +274,10 @@ class ProductController extends Controller
         })->unescape();
 
         $show->sizes(trans('admin.size'))->as(function ($sizes) {
-            $headers = ['DIA.', 'Dec. Equ.', 'Flute length', 'Diameter', 'Shank Diameter', 'OAL', 'Number of Flutes'];
-            $values = array_map(function ($size) {
+            $headers = ['#', 'DIA.', 'Dec. Equ.', 'Flute length', 'Diameter', 'Shank Diameter', 'OAL', 'Number of Flutes'];
+            $values = array_map(function ($size, $index) {
                 return [
+                    $index,
                     $size['diameter'],
                     $size['equivalence'],
                     $size['flute_length'],
@@ -285,7 +286,7 @@ class ProductController extends Controller
                     $size['overall_length'],
                     $size['flutes']
                 ];
-            }, $sizes->toArray());
+            }, $sizes->toArray(), range(1, $sizes->count()));
 
             $table = new Table($headers, $values);
             return $table->render();
