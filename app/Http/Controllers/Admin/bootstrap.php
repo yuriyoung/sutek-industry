@@ -19,15 +19,13 @@
  */
 
 use App\Http\Controllers\Admin\Extensions\WangEditor;
-use App\Http\Controllers\Admin\Extensions\SliderRevolution;
 use App\Http\Controllers\Admin\Extensions\Popover;
-use Encore\Admin\Admin;
 use Encore\Admin\Form;
 use Encore\Admin\Grid\Column;
 
+Encore\Admin\Form::forget(['map', 'editor']);
+
 app('view')->prependNamespace('admin', resource_path('views/admin'));
 Form::extend('editor', WangEditor::class);
-//Form::extend('slider', SliderRevolution::class);
 Column::extend('popover', Popover::class);
 
-Encore\Admin\Form::forget(['map']);
