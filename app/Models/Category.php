@@ -27,7 +27,7 @@ use Keygen\Keygen;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Product[] $products
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Category findSimilarSlugs(\Illuminate\Database\Eloquent\Model $model, $attribute, $config, $slug)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Category whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Category whereHot($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Category whereViews($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Category whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Category whereImage($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Category whereName($value)
@@ -77,6 +77,11 @@ class Category extends Model
                 'source' => 'name'
             ]
         ];
+    }
+
+    public function populars($count)
+    {
+        return Category::where('parent_id', '!=', 0)->orderBy('views', 'DESC')->take($count);
     }
 
     /**
