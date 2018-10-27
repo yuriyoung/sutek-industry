@@ -56,18 +56,6 @@ class HomeController extends FrontController
     }
 
     /**
-     * @brief The news provides ...
-     * @author Yuri Young<yuri.young@qq.com>
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function news()
-    {
-        $this->activeMenu['news'] = 'active';
-        return view('home.news');
-    }
-
-    /**
      * @brief The downloads provides ...
      * @author Yuri Young<yuri.young@qq.com>
      *
