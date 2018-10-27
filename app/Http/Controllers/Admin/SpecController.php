@@ -87,6 +87,8 @@ class SpecController extends Controller
 
             $options = Spec::names();
 
+            $grid->number('#');
+            $grid->rows(function ($row, $number) { $row->column('number', $number+1); });
             $grid->id('ID')->sortable();
             $grid->name(trans('admin.spec_name'))->editable('select', $options)->sortable();
             $grid->value(trans('admin.spec_value'))->editable()->sortable();

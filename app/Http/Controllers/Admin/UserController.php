@@ -82,7 +82,8 @@ class UserController extends Controller
     protected function grid()
     {
         $grid = new Grid(new User());
-
+        $grid->number('#');
+        $grid->rows(function ($row, $number) { $row->column('number', $number+1); });
         $grid->id('ID')->sortable();
         $grid->name(trans('admin.name'))->sortable();
         $grid->email(trans('admin.email'))->sortable();

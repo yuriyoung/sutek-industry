@@ -165,6 +165,9 @@ class ProductController extends Controller
     {
         return Admin::grid(Product::class, function (Grid $grid)  {
 
+            $grid->number('#');
+            $grid->rows(function ($row, $number) { $row->column('number', $number+1); });
+
             $grid->id('ID')->sortable();
             $grid->title(trans('admin.title'))->editable();
             $grid->slug(trans('admin.slug'))->display(function ($slug) {
@@ -360,6 +363,9 @@ class ProductController extends Controller
                 $grid = Admin::Grid(Size::class, function (Grid $grid) use($id) {
                     $grid->model()->where('product_id', $id);
                 });
+
+                $grid->number('#');
+                $grid->rows(function ($row, $number) { $row->column('number', $number+1); });
 
                 $grid->id('ID')->sortable();
                 $grid->product_id('Product')->sortable();
