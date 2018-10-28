@@ -256,8 +256,9 @@ class ProductController extends FrontController
             $expanded = isset($current_spec) ? ($name === $current_spec->name ? true : false) : false;
             $collapsed = $expanded ? '' : 'collapsed';
             $show = $expanded ? 'show' : '';
+            $name_case = title_case($name);
             $html .= "<li class=\"nav-item\">";
-            $html .= "<a  class=\"nav-link {$collapsed}\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse_{$name_slug}\" aria-expanded=\"{$expanded}\" aria-controls=\"collapse_{$name_slug}\"><i class=\"fa fa-list-ul\"></i> {$name} <span class=\"badge\">".count($specs)."</span></a>";
+            $html .= "<a  class=\"nav-link {$collapsed}\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse_{$name_slug}\" aria-expanded=\"{$expanded}\" aria-controls=\"collapse_{$name_slug}\"><i class=\"fa fa-list-ul\"></i> {$name_case} <span class=\"badge\">".count($specs)."</span></a>";
             $html .= "<ul class=\"menu collapse {$show}\" id=\"collapse_{$name_slug}\">";
 
             foreach ($specs as $spec)
