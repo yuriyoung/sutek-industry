@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Cviebrock\EloquentSluggable\Services\SlugService;
 use Encore\Admin\Show;
 use Illuminate\Http\Request;
 use Illuminate\Support\MessageBag;
@@ -214,11 +213,6 @@ class SpecController extends Controller
                     'message' => "规格参数为 '{$form->name}' 的值  '{$form->value}'  已经存在！"
                 ]);
                 return back()->with(compact('error'));
-            }
-
-            if ($form->slug)
-            {
-                $form->slug = SlugService::createSlug(Spec::class, 'slug', $form->slug, ['unique' => true]);
             }
         });
 

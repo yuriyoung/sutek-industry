@@ -8,6 +8,7 @@ use Encore\Admin\Traits\AdminBuilder;
 use Encore\Admin\Traits\ModelTree;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Keygen\Keygen;
 
 /**
@@ -127,6 +128,13 @@ class Category extends Model
                 $id = $category->_generatePrimaryKey();
             }
             $category->id = $id;
+            $source = blank($category->slug) ? $category->title : $category->slug;
+            $category->slug = SlugService::createSlug(News::class, 'slug', $source, ['unique' => true]);
+        });
+
+        static::updating(function (Category $category){
+            $source = blank($category->slug) ? $category->title : $category->slug;
+            $category->slug = SlugService::createSlug(News::class, 'slug', $source, ['unique' => true]);
         });
 
 //        static::deleting(function (Category $model) {

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 /**
  * App\Models\Product
@@ -29,7 +30,6 @@ class News extends Model
 
     protected $fillable = [
         'title',
-        'slug',
         'user_id',
         'summary',
         'body',
@@ -73,5 +73,21 @@ class News extends Model
     public function getUrlAttribute()
     {
         return  url("news/{$this->slug}");
+    }
+
+    protected static function boot ()
+    {
+        parent::boot();
+
+        static::creating(function (News $news) {
+            $news->user_id = auth('admin')->id();
+            $source = blank($news->slug) ? $news->title : $news->slug;
+            $news->slug = SlugService::createSlug(News::class, 'slug', $source, ['unique' => true]);
+        });
+
+        static::updating(function (News $news){
+            $source = blank($news->slug) ? $news->title : $news->slug;
+            $news->slug = SlugService::createSlug(News::class, 'slug', $source, ['unique' => true]);
+        });
     }
 }

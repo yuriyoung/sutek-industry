@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
@@ -107,18 +106,11 @@ class CategoryController extends Controller
             $form->display('id', 'ID')->setWidth(2);
             $form->select('parent_id', trans('admin.category_parent'))->options(Category::selectOptions())->setWidth(4);
             $form->text('name', trans('admin.category'))->rules('required|min:2|max:20');
-            $form->text('slug', trans('admin.slug'))->prepend('<i class="fa fa-internet-explorer fa-fw"></i>')->help(trans('admin.helper.slug'));;
+            $form->text('slug', trans('admin.slug'))->prepend('<i class="fa fa-internet-explorer fa-fw"></i>')->help(trans('admin.helper.slug'));
             $form->text('description', trans('admin.description'))->help('分类描述（可选）');
             $form->number('views', trans('admin.hot'));
             $form->datetime('created_at', trans('admin.created_at'));
             $form->datetime('updated_at', trans('admin.updated_at'));
-
-            $form->saving(function (Form $form){
-                if ($form->slug)
-                {
-                    $form->slug = SlugService::createSlug(Category::class, 'slug', $form->slug, ['unique' => true]);
-                }
-            });
         });
     }
 }

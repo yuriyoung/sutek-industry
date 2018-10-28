@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Storage;
 use Keygen\Keygen;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -74,7 +75,8 @@ class Product extends Model
     {
         return [
             'slug' => [
-                'source' => 'title'
+                'source' => 'title',
+                'onUpdate' => false
             ]
         ];
     }
@@ -148,6 +150,8 @@ class Product extends Model
                 $id = $product->_generatePrimaryKey();
             }
             $product->id = $id;
+            $source = blank($product->slug) ? $product->title : $product->slug;
+            $product->slug = SlugService::createSlug(News::class, 'slug', $source, ['unique' => true]);
 
             if (request()->hasFile('images'))
             {
@@ -157,6 +161,8 @@ class Product extends Model
         });
 
         static::updating(function(Product $product){
+            $source = blank($product->slug) ? $product->title : $product->slug;
+            $product->slug = SlugService::createSlug(News::class, 'slug', $source, ['unique' => true]);
             if (request()->hasFile('images'))
             {
                 // 编辑时可能有新图增加

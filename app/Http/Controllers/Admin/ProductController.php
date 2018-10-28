@@ -22,7 +22,6 @@ use Encore\Admin\Layout\Content;
 use Encore\Admin\Grid;
 use Encore\Admin\Form;
 use Illuminate\Support\Facades\Storage;
-use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class ProductController extends Controller
 {
@@ -322,8 +321,8 @@ class ProductController extends Controller
             $form->display('id', 'ID');
             $form->select('category_id',trans('admin.category'))->options(Category::selectOptions())->help(__('admin.helper.product_category', ['url' => admin_url('categories')]));
             $form->text('title', trans('admin.title'))->rules('required|min:8|max:64')->help(__('admin.helper.product_title', ['max' => '64']));
-            $form->text('slug', trans('admin.slug'))->prepend('<i class="fa fa-internet-explorer fa-fw"></i>' . url('products') . '/')->help(__('admin.helper.slug'));
-            $form->ckeditor('description', trans('admin.description'))->rules('required');
+            $form->text('slug', trans('admin.slug'))->prepend('<i class="fa fa-internet-explorer fa-fw"></i>' . str_finish(url('products'), '/'))->help(__('admin.helper.slug'));
+            $form->editor('description', trans('admin.description'))->rules('required');
             $form->html(__('admin.helper.description.product'));
             $form->multipleImage('images', trans('admin.image'))
                 ->uniqueName()
@@ -397,13 +396,6 @@ class ProductController extends Controller
                 $form->html($grid->render())->setWidth(12);
             });
         }
-
-        $form->saving(function (Form $form){
-            if ($form->slug)
-            {
-                $form->slug = SlugService::createSlug(Product::class, 'slug', $form->slug, ['unique' => true, 'includeTrashed' => true]);
-            }
-        });
 
         return $form;
     }

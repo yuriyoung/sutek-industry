@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Keygen\Keygen;
 
 /**
@@ -74,6 +75,13 @@ class Spec extends Model
                 $id = $spec->_generatePrimaryKey();
             }
             $spec->id = $id;
+            $source = blank($spec->slug) ? $spec->title : $spec->slug;
+            $spec->slug = SlugService::createSlug(News::class, 'slug', $source, ['unique' => true]);
+        });
+
+        static::updating(function (Spec $spec) {
+            $source = blank($spec->slug) ? $spec->title : $spec->slug;
+            $spec->slug = SlugService::createSlug(News::class, 'slug', $source, ['unique' => true]);
         });
     }
 
