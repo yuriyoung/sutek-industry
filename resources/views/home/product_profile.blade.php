@@ -77,11 +77,11 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Dia</th>
+                                    <th>Dia.</th>
                                     <th>Dec.Equ.</th>
                                     <th>Flute Length</th>
                                     <th>Shank DIA</th>
-                                    <th>OAL</th>
+                                    <th>OAL.</th>
                                     <th>Number of Flutes</th>
                                 </tr>
                                 </thead>
@@ -90,12 +90,12 @@
                                     @foreach($product->sizes as $idx => $size)
                                         <tr>
                                             <td>{!! $idx+1 !!}</td>
-                                            <td>{!! $size->diameter ?: 'N/A' !!}</td>
-                                            <td>{!! $size->equivalence ?: 'N/A' !!}</td>
-                                            <td>{!! $size->flute_length ?: 'N/A' !!}</td>
-                                            <td>{!! $size->shank_diameter ?: 'N/A' !!}</td>
-                                            <td>{!! $size->overall_length ?: 'N/A' !!}</td>
-                                            <td>{!! $size->flutes ?: 'N/A' !!}</td>
+                                            <td>{!! $size->diameter ?:          'N/A' !!}</td>
+                                            <td>{!! $size->equivalence ?:       'N/A' !!}</td>
+                                            <td>{!! $size->flute_length ?:      'N/A' !!}</td>
+                                            <td>{!! $size->shank_diameter ?:    'N/A' !!}</td>
+                                            <td>{!! $size->overall_length ?:    'N/A' !!}</td>
+                                            <td>{!! $size->flutes ?:            'N/A' !!}</td>
                                         </tr>
                                     @endforeach
                                 @else
@@ -111,6 +111,7 @@
                                 @endif
                                 </tbody>
                             </table>
+                            <span class="text-muted"><i class="fa fa-exclamation-circle text-info"></i> Other sizes as per customer request.</span>
                         </div>
 
                         <div class="tab-pane embed-responsive embed-responsive-16by9" id="pill-3">
@@ -125,7 +126,7 @@
                         <span class="likes"><a href="#" data-slug="{!! $product->slug !!}"><i class="fa fa-thumbs-o-up text-default pl-10 pr-1"></i></a> {!! $product->likes !!} likes</span>
                     </div>
 
-                    <div class="row">
+                    <div class="row pv-20">
                         <article class="col-lg-12 object-non-visible" data-animation-effect="fadeInUp" data-effect-delay="600">
                             <header>
                                 <h3>Product Description</h3>

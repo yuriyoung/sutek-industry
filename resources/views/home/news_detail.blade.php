@@ -46,12 +46,8 @@
                         <footer class="clearfix"></footer>
                     </article>
 
-                    <div class="pv-30 clearfix"></div>
-
                     <h3 class="mt-2">Comments</h3>
                     <div class="separator-2"></div>
-
-
 
                     <div class="forms pv-45">
                         <form class="contact-form margin-clear" id="commentForm">

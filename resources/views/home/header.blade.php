@@ -99,15 +99,16 @@
                                                 <li>
                                                     <div class="row">
                                                         <div class="col-lg-4 col-md-3 hidden-md-down">
-                                                            <h4 class="title">Cutting Tool Solutions</h4>
-                                                            <p class="mb-2">Manufacture of HSS, Taps, Cobalt, Powder, Metal &
-                                                                Carbide Precision Tools.
-                                                                EndMills, Drills, Cutters, Routers and Chamfer Mills.
+                                                            <h4 class="title"><strong>Cutting Tool Solutions</strong></h4>
+                                                            <p class="mb-2">
+                                                                Hammer Drill Bit & Concrete / Masonry Drill Bit;
+                                                                HSS & Flat Wood Drill Bit, Wood Auger Bit & Brad Wood Bit & Wood Forstner Bit;
+                                                                Diamond Saw blade & Hole Saw & Screwdriver Bit;
                                                                 Metal/Stone/Wood Working.</p>
-                                                            <img src="/images/stuek-image-1.jpg" alt="Sutek image">
+                                                            <img src="/images/sutek-image-1.jpg" alt="Sutek image">
                                                         </div>
                                                         <div class="col-md-8">
-                                                            <h4 class="title"><a href="{!! url('/categories') !!}">Categories</a></h4>
+                                                            <h4 class="title">Categories</h4>
                                                             <div class="divider"></div>
                                                             <div class="row">
                                                                 <div class="col-lg-6">

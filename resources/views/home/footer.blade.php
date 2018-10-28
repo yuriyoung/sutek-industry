@@ -17,6 +17,7 @@
                             <nav>
                                 <ul class="nav flex-column">
                                     <li class="nav-item"><a class="nav-link" href="{!! url('services') !!}">Services</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{!! url('news') !!}">News</a></li>
                                     <li class="nav-item"><a class="nav-link" href="{!! url('products') !!}">Products</a></li>
                                     <li class="nav-item"><a class="nav-link" href="{!! url('downloads') !!}">Downloads</a></li>
                                     <li class="nav-item"><a class="nav-link" href="{!! url('about') !!}">About</a></li>

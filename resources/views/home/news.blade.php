@@ -51,7 +51,7 @@
 
                                 </div>
                                 <footer class="clearfix">
-                                    <div class="tags pull-left"><i class="fa fa-tags pr-1"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a></div>
+                                    {{--<div class="tags pull-left"><i class="fa fa-tags pr-1"></i> <a href="#">tag 1</a>, <a href="#">tag 2</a>, <a href="#">long tag 3</a></div>--}}
                                     <div class="link pull-right"><i class="fa fa-link pr-1"></i><a href="{!! url('news/'.$post->slug) !!}">Read More</a></div>
                                 </footer>
                             </article>
