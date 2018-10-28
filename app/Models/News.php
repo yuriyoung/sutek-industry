@@ -51,23 +51,16 @@ class News extends Model
         return $this->belongsTo(Administrator::class, 'user_id');
     }
 
-    public function setImagesAttribute($images)
+    public function getImageAttribute()
     {
-        if (is_string($images))
+        preg_match_all( '~<img [^>]* />~', $this->body, $matchs );
+        $count = count($matchs[0]);
+        if ($count > 0)
         {
-            $images = array_wrap($images);
+            preg_match('/<img.+src=\"?(.+\.(jpg|jpeg|gif|bmp|bnp|PNG))\"?.+>/i', $matchs[0][0], $match);
+            return $match[1];
         }
-
-        $this->attributes['images'] = json_encode($images);
-    }
-
-    public function getImagesAttribute($images)
-    {
-        if(is_array($images))
-        {
-            return $images;
-        }
-        return json_decode($images, true);
+        return null;
     }
 
     public function getUrlAttribute()
