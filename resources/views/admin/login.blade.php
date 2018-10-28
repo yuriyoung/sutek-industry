@@ -24,9 +24,9 @@
 </head>
 <body class="hold-transition login-page" @if(config('admin.login_background'))style="background: {{config('admin.login_background')}};background-size: cover;"@endif>
 <div class="login-logo" style="margin-top: 60px; color: #fff">
-    <a href="{{ admin_base_path('/') }}" style="color: #fff;"><img src="{{ config('admin.logo_image') }}"></a>
-    <p><a href="{{ admin_base_path('/') }}" style="color: #fff;"><b>{{config('admin.name')}}</b></a></p>
-    <p><a href="{{ admin_base_path('/') }}" style="color: #fff;"><b>{{config('admin.name_cn')}}</b></a></p>
+    <a href="{{ url('/') }}" style="color: #fff;"><img src="{{ config('admin.logo_image') }}"></a>
+    <p><a href="{{ url('/') }}" style="color: #fff;"><b>{{config('admin.name')}}</b></a></p>
+    <p><a href="{{ url('/') }}" style="color: #fff;"><b>{{config('admin.name_cn')}}</b></a></p>
 </div>
 <div class="login-box" style="margin: 3% auto;">
   <!-- /.login-logo -->
