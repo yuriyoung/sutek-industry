@@ -184,7 +184,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="body object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="400">
-                                <div class="pv-20 hidden-lg-down"></div>
+                                <div class="pv-30 hidden-lg-down"></div>
                                 <h3>Drill BitS For Wood</h3>
                                 <div class="separator-2"></div>
                                 <p class="margin-clear">
@@ -215,7 +215,7 @@
                         </div>
                         <div class="col-lg-6 order-lg-1">
                             <div class="body text-left object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="500">
-                                <div class="pv-20 hidden-lg-down"></div>
+                                <div class="mt-20 hidden-lg-down"></div>
                                 <h3 class="text-right">Carbonsteel Material</h3>
                                 <div class="separator-3"></div>
                                 <p class="margin-clear">
@@ -237,7 +237,7 @@
                             <div class="overlay-container object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="400">
                                 <img src="/images/sutek-image-12.jpg" alt="Sutek Industries Delivery">
                                 <div class="overlay-to-top">
-                                    <p class="small margin-clear"><em><strong>Sutek Industries</strong><br> Delivery</em></p>
+                                    <p class="small margin-clear"><em><strong>Sutek Industries</strong><br>Manufacture & Packing & Delivery</em></p>
                                 </div>
                             </div>
                         </div>
@@ -252,8 +252,8 @@
                                 <ul class="list-icons">
                                     <li class="object-non-visible animated fadeInUp"><i class="fa fa-check-square-o"></i> Good packing materials of ABS for plastic tube/case and etc.</li>
                                     <li class="object-non-visible animated fadeInUp"><i class="fa fa-check-square-o"></i> Approved carton with at least four packing belt.</li>
-                                    <li class="object-non-visible animated fadeInUp"><i class="fa fa-check-square-o"></i> Acceptance of the pallets should be marked with EUR and/or EPAL marks.</li>
-                                    <li class="object-non-visible animated fadeInUp"><i class="fa fa-check-square-o"></i> Goods on the pallets must be very good wrap film.</li>
+                                    <li class="object-non-visible animated fadeInUp"><i class="fa fa-√"></i> Acceptance of the pallets should be marked with EUR and/or EPAL marks.</li>
+                                    <li class="object-non-visible animated fadeInUp"><i class="fa √"></i> Goods on the pallets must be very good wrap film.</li>
                                 </ul>
                             </div>
                         </div>
@@ -264,25 +264,26 @@
                     <div class="row grid-space-0">
                         <div class="col-lg-6 order-lg-2">
                             <div class="overlay-container object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="500">
-                                <img src="/images/sutek-image-5.jpg" alt="Sutek Industries Delivery">
+                                <img src="/images/sutek-image-13.jpg" alt="Sutek Industries Quality Inspection">
                                 <div class="overlay-to-top">
-                                    <p class="small margin-clear"><em><strong>Sutek Industries</strong><br> Delivery</em></p>
+                                    <p class="small margin-clear"><em><strong>Sutek Industries</strong><br> Quality Inspection</em></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6 order-lg-1">
                             <div class="body text-left object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="500">
-                                <div class="pv-30 hidden-lg-down"></div>
-                                <h3>Delivery</h3>
+                                <div class="pt-3 hidden-lg-down"></div>
+                                <h3>Quality Inspection</h3>
                                 <div class="separator-3"></div>
                                 <p class="margin-clear">
-                                    As a export-oriented drill bit enterprise, we are always firmly to control every packing details for good delivery.
+                                    Quality inspection is a must before delivery based on Sutek Quality Control Documents or Customer Request Documents.
                                 </p>
                                 <ul class="list-icons">
-                                    <li class="object-non-visible animated fadeInUp"><i class="fa fa-check"></i> Good packing materials of ABS for plastic tube/case and etc.</li>
-                                    <li class="object-non-visible animated fadeInUp"><i class="fa fa-check"></i> Approved carton with at least four packing belt.</li>
-                                    <li class="object-non-visible animated fadeInUp"><i class="fa fa-check"></i> Acceptance of the pallets should be marked with EUR and/or EPAL marks.</li>
-                                    <li class="object-non-visible animated fadeInUp"><i class="fa fa-check"></i> Goods on the pallets must be very good wrap film.</li>
+                                    <li class="object-non-visible animated fadeInUp"><i class="fa fa-check-square-o"></i> Hardness test to make sure drill bit with a good heat treatment.</li>
+                                    <li class="object-non-visible animated fadeInUp"><i class="fa fa-check-square-o"></i> Drilling test to approve our drill bit practicability.</li>
+                                    <li class="object-non-visible animated fadeInUp"><i class="fa fa-check-square-o"></i> Chemical Analysis for raw materials choice is guaranteed.</li>
+                                    <li class="object-non-visible animated fadeInUp"><i class="fa fa-check-square-o"></i> Visible Test for how to distinguish the raw materials by experiences.</li>
+                                    <li class="object-non-visible animated fadeInUp"><i class="fa fa-check-square-o"></i> Drill Bit specification should accord with DIN , ANSI/ASME standard or Tailor-made based on Technical Reference.</li>
                                 </ul>
                             </div>
                         </div>

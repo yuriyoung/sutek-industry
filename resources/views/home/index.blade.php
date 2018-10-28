@@ -98,7 +98,7 @@
                 <div class="col-lg-4 col-sm-12">
                     <div class="image-box style-2 mb-20 bordered shadow-2 object-non-visible " data-animation-effect="fadeInUp" data-effect-delay="400">
                         <div class="overlay-container overlay-visible">
-                            <img src="/images/Drill-bits-for-Wood.jpg" class="img-responsive" alt="Drill bits for Wood">
+                            <img src="/images/sutek-image-13.jpg" class="img-responsive" alt="Drill bits for Wood">
                             <a href="{!! url('services') !!}" class="overlay-link"><i class="fa fa-link"></i></a>
                             <div class="overlay-to-top">
                                 <div class="text">
@@ -110,8 +110,7 @@
                         <div class="separator clearfix"></div>
                         <div class="body padding-horizontal-clear object-non-visible " data-animation-effect="fadeInUpSmall">
                             <p>
-                                Manufacture from Flat wood drill bit to Brad Point Wood Drill Bits;
-                                Wood Auger Bits; Extension for Spade Drills; Wood Forstener Bit ...
+                                Quality inspection is a must before delivery based on Sutek Quality Control Documents or Customer Request Documents...
                             </p>
                             <a class="btn btn-default btn-sm margin-clear btn-animated" href="{!! url('services') !!}">Read More <i class="pl-1 fa fa-angle-double-right"></i></a>
                         </div>
