@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Home;
 use App\Models\News;
 use Illuminate\Http\Request;
 use App\Http\Controllers\FrontController;
+use Illuminate\View\View;
 
 class NewsController extends FrontController
 {
@@ -20,6 +21,12 @@ class NewsController extends FrontController
         $this->recent_news = News::orderByDesc('created_at')->take(5)->get();
         $this->hot_news = News::orderByDesc('views')->take(5)->get();
         $this->latest_images = $this->_latest_images();
+
+        \view()->composer(['home.widgets.news-sidebar'], function (View $view) {
+            $view->with('recent_news', $this->recent_news)
+                ->with('hot_news', $this->hot_news)
+                ->with('latest_images', $this->latest_images);
+        });
     }
 
     /**
