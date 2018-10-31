@@ -31,6 +31,7 @@ Route::group([
     $router->get('download', 'HomeController@doDownload')->name('home.download');
     $router->get('about', 'HomeController@about')->name('home.about');
     $router->get('contact', 'HomeController@contact')->name('home.contact');
+    $router->get('sitemap', 'HomeController@sitemap')->name('home.sitemap');
 
     $router->get('products', 'ProductController@index')->name('products.index');
     $router->get('products/{title}', 'ProductController@show')->name('products.show');

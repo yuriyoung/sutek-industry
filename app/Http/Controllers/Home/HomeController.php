@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Models\Category;
+use App\Models\Spec;
 use Illuminate\Http\Request;
 use App\Http\Controllers\FrontController;
 use App\Models\Product;
@@ -41,6 +43,16 @@ class HomeController extends FrontController
         // ...
 
         return redirect()->back();
+    }
+
+    public function sitemap()
+    {
+        $this->activeMenu['sitemap'] = 'active';
+
+        return view('home.sitemap', [
+            'categories' => Category::all(),
+            'specs' => Spec::all(),
+        ]);
     }
 
     /**
