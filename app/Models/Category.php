@@ -129,12 +129,12 @@ class Category extends Model
             }
             $category->id = $id;
             $source = blank($category->slug) ? $category->title : $category->slug;
-            $category->slug = SlugService::createSlug(News::class, 'slug', $source, ['unique' => true]);
+            $category->slug = SlugService::createSlug(Category::class, 'slug', $source, ['unique' => true]);
         });
 
         static::updating(function (Category $category){
             $source = blank($category->slug) ? $category->title : $category->slug;
-            $category->slug = SlugService::createSlug(News::class, 'slug', $source, ['unique' => true]);
+            $category->slug = SlugService::createSlug(Category::class, 'slug', $source, ['unique' => false]);
         });
 
 //        static::deleting(function (Category $model) {

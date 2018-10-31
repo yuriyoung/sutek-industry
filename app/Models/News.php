@@ -80,7 +80,7 @@ class News extends Model
 
         static::updating(function (News $news){
             $source = blank($news->slug) ? $news->title : $news->slug;
-            $news->slug = SlugService::createSlug(News::class, 'slug', $source, ['unique' => true]);
+            $news->slug = SlugService::createSlug(News::class, 'slug', $source, ['unique' => false]);
         });
     }
 }

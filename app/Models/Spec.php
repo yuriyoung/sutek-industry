@@ -76,12 +76,12 @@ class Spec extends Model
             }
             $spec->id = $id;
             $source = blank($spec->slug) ? $spec->title : $spec->slug;
-            $spec->slug = SlugService::createSlug(News::class, 'slug', $source, ['unique' => true]);
+            $spec->slug = SlugService::createSlug(Spec::class, 'slug', $source, ['unique' => true]);
         });
 
         static::updating(function (Spec $spec) {
             $source = blank($spec->slug) ? $spec->title : $spec->slug;
-            $spec->slug = SlugService::createSlug(News::class, 'slug', $source, ['unique' => true]);
+            $spec->slug = SlugService::createSlug(Spec::class, 'slug', $source, ['unique' => false]);
         });
     }
 

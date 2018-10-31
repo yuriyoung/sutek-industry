@@ -76,7 +76,6 @@ class Product extends Model
         return [
             'slug' => [
                 'source' => 'title',
-                'onUpdate' => false
             ]
         ];
     }
@@ -151,7 +150,7 @@ class Product extends Model
             }
             $product->id = $id;
             $source = blank($product->slug) ? $product->title : $product->slug;
-            $product->slug = SlugService::createSlug(News::class, 'slug', $source, ['unique' => true]);
+            $product->slug = SlugService::createSlug(Product::class, 'slug', $source, ['unique' => true]);
 
             if (request()->hasFile('images'))
             {
@@ -162,7 +161,7 @@ class Product extends Model
 
         static::updating(function(Product $product){
             $source = blank($product->slug) ? $product->title : $product->slug;
-            $product->slug = SlugService::createSlug(News::class, 'slug', $source, ['unique' => true]);
+            $product->slug = SlugService::createSlug(Product::class, 'slug', $source, ['unique' => false]);
             if (request()->hasFile('images'))
             {
                 // 编辑时可能有新图增加
