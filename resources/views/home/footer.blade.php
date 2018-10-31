@@ -9,8 +9,7 @@
                             <div class="logo-footer"><img id="logo-footer" src="/images/logo-light.png" alt=""></div>
                             <p>Shanghai Sutek Industries Co., Ltd is an export-oriented industry and trade integration company
                                 in field of hardware products. 25 years of export experience laid it's foundation
-                                in the industry of tools, be professional on services of well-known
-                                enterprises at home and abroad and be widely ...
+                                in the industry of tools, be professional on ...
                                 <a href="{!! url('about') !!}">Learn More<i class="fa fa-long-arrow-right pl-1"></i></a>
                             </p>
                             <div class="separator-2"></div>
@@ -22,6 +21,7 @@
                                     <li class="nav-item"><a class="nav-link" href="{!! url('downloads') !!}">Downloads</a></li>
                                     <li class="nav-item"><a class="nav-link" href="{!! url('about') !!}">About</a></li>
                                     <li class="nav-item"><a class="nav-link" href="{!! url('contact') !!}">Contact Us</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="{!! url('sitemap') !!}">Sitemap</a></li>
                                 </ul>
                             </nav>
                         </div>
